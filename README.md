@@ -34,7 +34,7 @@ User stories:<br/>
 2 - User can send a message to other users <br/>
 3 - User can have a favorite items or wishlist <br/>
 4 - User can make a write a review on products <br/>
-5 - Moderators can send messeges to users to correct conduct <br/>
+5 - Moderators can send messages to users to correct conduct <br/>
 
 
 
