@@ -20,7 +20,7 @@ User stories:<br/>
 9 - A user can check out their items stored in their shopping cart <br/>
 10 - A user can post items for sale <br/>
 11 - App keeps track of most researched items <br/>
-12 - App display most pupular items in home page <br/>
+12 - App display most popular items in home page <br/>
 13 - A user can evaluate a seller from 1 to 5 stars <br/>
 14 - A user can be a moderator <br/>
 15 - A moderator can delete listings if their are against company policies <br/>
