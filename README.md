@@ -30,7 +30,7 @@ User stories:<br/>
 <br/>
 ***Extra functionality***<br/>
 <br/>
-1 - User can use special cupon codes upon purchase to get discounts <br/>
+1 - User can use special coupon codes upon purchase to get discounts <br/>
 2 - User can send a message to other users <br/>
 3 - User can have a favorite items or wishlist <br/>
 4 - User can make a write a review on products <br/>
