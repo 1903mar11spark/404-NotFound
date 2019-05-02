@@ -22,10 +22,9 @@ User stories:<br/>
 11 - App keeps track of most researched items <br/>
 12 - App display most popular items in home page <br/>
 13 - A user can evaluate a seller from 1 to 5 stars <br/>
-14 - A user can be a moderator <br/>
-15 - A moderator can delete listings if their are against company policies <br/>
-16 - A user can contact a moderator to report a user <br/>
-17 - A moderator can ban a user <br/>
+14 - A moderator can delete listings if their are against company policies <br/>
+15 - A user can contact a moderator to report a user <br/>
+16 - A moderator can ban a user <br/>
 
 <br/>
 ***Extra functionality***<br/>
