@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver.class">oracle.jdbc.driver.OracleDriver</property>
+		<property name="hibernate.current_session_context_class">thread</property>
+		<!-- convenience for development -->
+		<property name="hibernate.show_sql">true</property>
+		<!-- choose whether to start fresh or update existing ddl -->
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		<mapping class="com.notfound.beans.Carts"></mapping>
+		<mapping class="com.notfound.beans.Items"></mapping>
+		<mapping class="com.notfound.beans.Login"></mapping>
+		<mapping class="com.notfound.beans.Review"></mapping>
+		<mapping class="com.notfound.beans.ShaneBucks"></mapping>
+		<mapping class="com.notfound.beans.User"></mapping>
+	</session-factory>
+</hibernate-configuration>

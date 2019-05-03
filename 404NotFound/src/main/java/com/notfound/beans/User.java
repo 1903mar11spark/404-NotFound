@@ -1,14 +1,37 @@
 package com.notfound.beans;
 
-public class User {
+import javax.persistence.*;
 
+@Entity
+@Table(name = "USER")
+public class User {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "userSequence")
+	@SequenceGenerator(allocationSize = 1, name = "userSequence", sequenceName = "SQ_USER_PK")
+	@Column(name = "USER_ID")
 	private int userId;
+	
+	@Column(name = "FIRSTNAME")
 	private String firstName;
+	
+	@Column(name = "LASTNAME")
 	private String lastName;
+	
+	@Column(name = "ADDRESS")
 	private String address;
+	
+	@Column(name = "CITY")
 	private String city;
+	
+	@Column(name = "COUNTRY")
 	private String country;
+	
+	@Column(name = "ZIP")
 	private int zip;
+	
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "SHANE_BUCKS_ID")
 	private ShaneBucks shaneBucks;
 	
 	
@@ -16,8 +39,7 @@ public class User {
 		super();
 	}
 	
-	public User(int userId, String firstName, String lastName, String address, String city, String country, int zip,
-			ShaneBucks shaneBucks) {
+	public User(int userId, String firstName, String lastName, String address, String city, String country, int zip, ShaneBucks shaneBucks) {
 		super();
 		this.userId = userId;
 		this.firstName = firstName;
@@ -27,6 +49,17 @@ public class User {
 		this.country = country;
 		this.zip = zip;
 		this.shaneBucks = shaneBucks;
+	}
+	
+	public User(int userId, String firstName, String lastName, String address, String city, String country, int zip) {
+		super();
+		this.userId = userId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.address = address;
+		this.city = city;
+		this.country = country;
+		this.zip = zip;
 	}
 	
 	public int getUserId() {

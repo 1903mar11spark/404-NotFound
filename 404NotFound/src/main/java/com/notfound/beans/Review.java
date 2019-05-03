@@ -1,9 +1,20 @@
 package com.notfound.beans;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "Review")
 public class Review {
 	
+	@Id
+	@Column(name = "REV_ID")
 	private int revId;
+	
+	@Column(name = "RANT")
 	private String rant;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "USER_ID")
 	private int userId;
 	
 	

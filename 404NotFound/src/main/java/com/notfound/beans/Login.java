@@ -1,10 +1,22 @@
 package com.notfound.beans;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "LOGIN")
 public class Login {
 
+	@Column(name = "USERNAME", unique = true)
 	private String userName;
+	
+	@Column(name = "PASSWORD")
 	private String password;
+	
+	@Column(name = "USER_TYPE")
 	private boolean userType;
+	
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "USER_ID")
 	private int userId;
 	
 	

@@ -1,9 +1,20 @@
 package com.notfound.beans;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "CARTS")
 public class Carts {
 	
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "USER_ID")
 	private int userId;
+	
+	@OneToMany(fetch = FetchType.EAGER)
+	@JoinColumn(name = "ITEMS")
 	private Items item;
+	
+	@Column(name = "TOTAL_PRICE")
 	private double totalPrice;
 	
 	
