@@ -1,0 +1,32 @@
+<div *ngIf="item">
+
+  <h2>{{item.itemName | uppercase}} Details</h2>
+  <div><span>id: </span>{{item.id}}</div>
+  <div>
+    <label>item:
+      <input [(ngModel)]="item.itemName" placeholder="item"/>
+    </label>
+    <br>
+    <label>itemType: 
+        <input [(ngModel)]="item.itemType" placeholder="type"/>
+    </label>
+    <br>
+    <label>price: 
+        <input [(ngModel)]="item.price" placeholder="price"/>
+    </label>
+    <br>
+    <label>condition: 
+        <input [(ngModel)]="item.condition" placeholder="condition"/>
+    </label>
+    <br>
+    <label>stock: 
+        <input [(ngModel)]="item.stock" placeholder="stock"/>
+    </label>
+    <br>
+    <label>popularity: 
+        <input [(ngModel)]="item.popularity" placeholder="popularity"/>
+    </label>
+  </div>
+ 
+</div>
+<button (click)="goBack()">go back</button>
