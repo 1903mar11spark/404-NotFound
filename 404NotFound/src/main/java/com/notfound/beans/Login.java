@@ -3,9 +3,10 @@ package com.notfound.beans;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "LOGIN")
+@Table(name = "LOGINS")
 public class Login {
 
+	@Id
 	@Column(name = "USERNAME", unique = true)
 	private String userName;
 	
@@ -15,8 +16,8 @@ public class Login {
 	@Column(name = "USER_TYPE")
 	private boolean userType;
 	
-	@OneToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "USER_ID")
+
+	@Column(name = "USER_ID")
 	private int userId;
 	
 	

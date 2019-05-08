@@ -3,7 +3,7 @@ package com.notfound.beans;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "USER")
+@Table(name = "USERS")
 public class User {
 	
 	@Id
@@ -30,16 +30,15 @@ public class User {
 	@Column(name = "ZIP")
 	private int zip;
 	
-	@OneToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "SHANE_BUCKS_ID")
-	private ShaneBucks shaneBucks;
+	@Column(name = "SHANE_BUCKS_ID")
+	private int shaneBucksId;
 	
 	
 	public User() {
 		super();
 	}
 	
-	public User(int userId, String firstName, String lastName, String address, String city, String country, int zip, ShaneBucks shaneBucks) {
+	public User(int userId, String firstName, String lastName, String address, String city, String country, int zip, int shaneBucksId) {
 		super();
 		this.userId = userId;
 		this.firstName = firstName;
@@ -48,7 +47,7 @@ public class User {
 		this.city = city;
 		this.country = country;
 		this.zip = zip;
-		this.shaneBucks = shaneBucks;
+		this.shaneBucksId = shaneBucksId;
 	}
 	
 	public User(int userId, String firstName, String lastName, String address, String city, String country, int zip) {
@@ -104,17 +103,17 @@ public class User {
 	public void setZip(int zip) {
 		this.zip = zip;
 	}
-	public ShaneBucks getShaneBucks() {
-		return shaneBucks;
+	public int getShaneBucksId() {
+		return shaneBucksId;
 	}
-	public void setShaneBucks(ShaneBucks shaneBucks) {
-		this.shaneBucks = shaneBucks;
+	public void setShaneBucks(int shaneBucksId) {
+		this.shaneBucksId = shaneBucksId;
 	}
 
 	@Override
 	public String toString() {
 		return "User [userId=" + userId + ", firstName=" + firstName + ", lastName=" + lastName + ", address=" + address
-				+ ", city=" + city + ", country=" + country + ", zip=" + zip + ", shaneBucks=" + shaneBucks + "]";
+				+ ", city=" + city + ", country=" + country + ", zip=" + zip + ", shaneBucksId=" + shaneBucksId + "]";
 	}
 	
 	

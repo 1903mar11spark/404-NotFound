@@ -38,10 +38,34 @@ public class Items {
 		super();
 	}
 	
+	public Items(int itemId) {
+		this.itemId = itemId;
+	}
+	
+	public Items(short itemType) {
+		this.itemType = itemType;
+	}
+	
+	public Items(double price) {
+		this.price = price;
+	}
+	
 	public Items(int itemId, String itemName, int itemType, String image, double price, boolean condition, int stock,
 			float popularity) {
 		super();
 		this.itemId = itemId;
+		this.itemName = itemName;
+		this.itemType = itemType;
+		this.image = image;
+		this.price = price;
+		this.condition = condition;
+		this.stock = stock;
+		this.popularity = popularity;
+	}
+	
+	public Items(String itemName, int itemType, String image, double price, boolean condition, int stock,
+			float popularity) {
+		super();
 		this.itemName = itemName;
 		this.itemType = itemType;
 		this.image = image;

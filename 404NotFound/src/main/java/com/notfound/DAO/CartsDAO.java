@@ -1,14 +1,12 @@
 package com.notfound.DAO;
 
-import java.util.List;
-
-import com.notfound.beans.Items;
+import com.notfound.beans.Carts;
 
 public interface CartsDAO {
 	
-	public void createNewCartItem (int userId, List<Items> item, double totalPrice);
-	public void deleteCartById(int userId);
-	public void editCartByIf(int userId);
-	public void getCartById(int userId);
+	public void createNewCartItem (Carts cart);
+	public void deleteCart(Carts cart);
+	public void editCart(Carts cart);
+	public Carts getCartById(int userId);
 
 }

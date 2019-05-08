@@ -13,8 +13,8 @@ public class Review {
 	@Column(name = "RANT")
 	private String rant;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "USER_ID")
+
+	@Column(name = "USER_ID")
 	private int userId;
 	
 	

@@ -6,14 +6,15 @@ import javax.persistence.*;
 @Table(name = "SHANE_BUCKS")
 public class ShaneBucks {
 	
+	@Id
 	@Column(name = "SHANE_BUCKS_ID")
 	private int id;
 	
 	@Column(name = "BALANCE")
 	private int balance;
 	
-	@OneToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "USER_ID")
+
+	@Column(name = "USER_ID")
 	private int userId;
 	
 	public ShaneBucks() {

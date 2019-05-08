@@ -8,8 +8,11 @@ import javax.persistence.*;
 @Table(name = "CARTS")
 public class Carts {
 	
-	@OneToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "USER_ID")
+	@Id
+	private int cartId;
+	
+
+	@Column(name = "USER_ID")
 	private int userId;
 	
 	@OneToMany(fetch = FetchType.EAGER)
@@ -24,6 +27,10 @@ public class Carts {
 		super();
 	}
 	
+	public Carts(int userId) {
+		this.userId = userId;
+	}
+	
 	public Carts(int userId, List<Items> item, double totalPrice) {
 		super();
 		this.userId = userId;
@@ -31,6 +38,12 @@ public class Carts {
 		this.totalPrice = totalPrice;
 	}
 	
+	public int getCartId() {
+		return cartId;
+	}
+	public void setCartId(int cartId) {
+		this.cartId = cartId;
+	}
 	public int getUserId() {
 		return userId;
 	}
@@ -52,7 +65,7 @@ public class Carts {
 
 	@Override
 	public String toString() {
-		return "Carts [userId=" + userId + ", item=" + item + ", totalPrice=" + totalPrice + "]";
+		return "Carts [cartId =" + cartId + ", userId=" + userId + ", item=" + item + ", totalPrice=" + totalPrice + "]";
 	}
 	
 	
