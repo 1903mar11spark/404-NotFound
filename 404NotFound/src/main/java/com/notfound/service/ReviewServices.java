@@ -1,8 +1,8 @@
-package com.notfound.DAO;
+package com.notfound.service;
 
 import com.notfound.beans.Review;
 
-public interface ReviewDAO {
+public interface ReviewServices {
 
 	public void createReview(String rant);
 	public void deleteReview(Review review);

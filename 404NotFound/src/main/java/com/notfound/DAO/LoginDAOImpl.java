@@ -1,6 +1,9 @@
 package com.notfound.DAO;
 
+import javax.persistence.Query;
+
 import org.hibernate.Session;
+
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
@@ -35,8 +38,16 @@ public class LoginDAOImpl implements LoginDAO {
 
 	@Override
 	public int getUserId(Login login) {
-		// TODO Auto-generated method stub
-		return 0;
+		int userId = 0;
+		try (Session s = sf.getCurrentSession()) {
+			Transaction tx = s.beginTransaction();
+			String hql = "FROM LOGINS L WHERE L.USERNAME = " + login.getUserName()+ " AND WHERE L.PASSWORD = " + login.getPassword() + "";
+			Query query = s.createQuery(hql);
+			userId = query.getFirstResult();
+			tx.commit();
+		    s.close();
+		}
+		return userId;
 	}
 
 }

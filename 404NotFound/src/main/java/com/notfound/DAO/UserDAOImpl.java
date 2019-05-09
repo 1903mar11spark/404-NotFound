@@ -10,7 +10,7 @@ public class UserDAOImpl implements UserDAO {
 	private SessionFactory sf = ConnectionUtil.getSessionFactory();
 	
 	@Override
-	public void createUser() {
+	public void createUser(User user) {
 		// TODO Auto-generated method stub
 		
 	}

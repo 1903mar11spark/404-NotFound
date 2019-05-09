@@ -17,6 +17,9 @@ public class Review {
 	@Column(name = "USER_ID")
 	private int userId;
 	
+	@Column(name = "ITEM_ID")
+	private int itemId;
+	
 	
 	public Review() {
 		super();
@@ -27,6 +30,7 @@ public class Review {
 		this.revId = revId;
 		this.rant = rant;
 		this.userId = userId;
+		this.itemId = itemId;
 	}
 	
 	public int getRevId() {

@@ -21,7 +21,7 @@
 		<property name="password"
 			value="#{ systemProperties['BEARS_DB_PASSWORD'] }" />
 	</bean>-->
-	<bean name="sessionFactory"
+	<!--<bean name="sessionFactory"
 		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="packagesToScan" value="com.notfound.beans" />
@@ -41,5 +41,5 @@
 	<bean name="txManager"
 		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
-	</bean> 
+	</bean>-->
 </beans>

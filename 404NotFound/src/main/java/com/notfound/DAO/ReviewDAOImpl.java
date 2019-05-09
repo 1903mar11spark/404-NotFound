@@ -1,7 +1,10 @@
 package com.notfound.DAO;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
+import com.notfound.beans.Review;
 import com.notfound.util.ConnectionUtil;
 
 public class ReviewDAOImpl implements ReviewDAO {
@@ -10,13 +13,22 @@ public class ReviewDAOImpl implements ReviewDAO {
 	
 	@Override
 	public void createReview(String rant) {
-		// TODO Auto-generated method stub
-		
+		try (Session s = sf.getCurrentSession()) {
+			Transaction tx = s.beginTransaction();
+			s.persist(rant);
+			tx.commit();
+			s.close();
+		}		
 	}
 
 	@Override
-	public void deleteReview() {
-		// TODO Auto-generated method stub
+	public void deleteReview(Review review) {
+		try (Session s = sf.getCurrentSession()) {
+			Transaction tx = s.beginTransaction();
+			s.delete(review);
+			tx.commit();
+			s.close();
+		}
 		
 	}
 
@@ -27,7 +39,8 @@ public class ReviewDAOImpl implements ReviewDAO {
 	}
 
 	@Override
-	public void getReview(int userId) {
+	public Review getReview(int userId) {
+		return null;
 		// TODO Auto-generated method stub
 		
 	}
