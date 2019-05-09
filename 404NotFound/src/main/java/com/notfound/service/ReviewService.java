@@ -1,9 +1,11 @@
 package com.notfound.service;
 
+import org.springframework.stereotype.Service;
+
 import com.notfound.DAO.ReviewDAO;
 import com.notfound.DAO.ReviewDAOImpl;
 import com.notfound.beans.Review;
-
+@Service
 public class ReviewService implements ReviewServices {
 
 	ReviewDAO rd = new ReviewDAOImpl();

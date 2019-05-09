@@ -12,10 +12,6 @@
 	<!-- enable MVC annotations -->
 	<mvc:annotation-driven></mvc:annotation-driven>
 
-	<!-- enable mapping of static resources -->
-	<mvc:resources location="/WEB-INF/static/"
-		mapping="/static/**"></mvc:resources>
-
 	<!-- set up ViewResolver for JSPs (and other templating engines, like Thymeleaf 
 		and Freemarker) -->
 	<bean name="viewResolver"

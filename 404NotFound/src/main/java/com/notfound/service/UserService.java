@@ -1,9 +1,11 @@
 package com.notfound.service;
 
+import org.springframework.stereotype.Service;
+
 import com.notfound.DAO.UserDAO;
 import com.notfound.DAO.UserDAOImpl;
 import com.notfound.beans.User;
-
+@Service
 public class UserService implements UserServices{
 
 	UserDAO ud = new UserDAOImpl();

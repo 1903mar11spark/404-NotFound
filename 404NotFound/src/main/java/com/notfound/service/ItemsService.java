@@ -1,9 +1,11 @@
 package com.notfound.service;
 
+import org.springframework.stereotype.Service;
+
 import com.notfound.DAO.ItemsDAO;
 import com.notfound.DAO.ItemsDAOImpl;
 import com.notfound.beans.Items;
-
+@Service
 public class ItemsService implements ItemServices {
 	
 	private ItemsDAO idi = new ItemsDAOImpl();

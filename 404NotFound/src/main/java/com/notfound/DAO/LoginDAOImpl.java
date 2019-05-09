@@ -1,15 +1,19 @@
 package com.notfound.DAO;
 
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 
 import org.hibernate.Session;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.springframework.stereotype.Repository;
 
 import com.notfound.beans.Login;
 import com.notfound.util.ConnectionUtil;
 
+@Repository(value="loginrDAO")
+@Transactional
 public class LoginDAOImpl implements LoginDAO {
 
 	private SessionFactory sf = ConnectionUtil.getSessionFactory();

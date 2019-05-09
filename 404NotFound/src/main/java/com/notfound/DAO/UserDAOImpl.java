@@ -1,10 +1,15 @@
 package com.notfound.DAO;
 
+import javax.transaction.Transactional;
+
 import org.hibernate.SessionFactory;
+import org.springframework.stereotype.Repository;
 
 import com.notfound.beans.User;
 import com.notfound.util.ConnectionUtil;
 
+@Repository(value="userDAO")
+@Transactional
 public class UserDAOImpl implements UserDAO {
 
 	private SessionFactory sf = ConnectionUtil.getSessionFactory();

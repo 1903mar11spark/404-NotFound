@@ -1,12 +1,17 @@
 package com.notfound.DAO;
 
+import javax.transaction.Transactional;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.springframework.stereotype.Repository;
 
 import com.notfound.beans.Carts;
 import com.notfound.util.ConnectionUtil;
 
+@Repository(value="cartsDAO")
+@Transactional
 public class CartsDAOImpl implements CartsDAO{
 
 	private SessionFactory sf = ConnectionUtil.getSessionFactory();

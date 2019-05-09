@@ -1,10 +1,12 @@
 package com.notfound.service;
 
 
+import org.springframework.stereotype.Service;
+
 import com.notfound.DAO.CartsDAO;
 import com.notfound.DAO.CartsDAOImpl;
 import com.notfound.beans.Carts;
-
+@Service
 public class CartsService implements CartsServices {
 
 	private CartsDAO cd = new CartsDAOImpl();
