@@ -1,32 +1,21 @@
-<div *ngIf="item">
+<div [ngClass]="setClasses()">
 
-  <h2>{{item.itemName | uppercase}} Details</h2>
-  <div><span>id: </span>{{item.id}}</div>
   <div>
-    <label>item:
-      <input [(ngModel)]="item.itemName" placeholder="item"/>
-    </label>
+    <img id ="pic" src = "{{item.image}}">
+    <h2>{{ item.itemName | uppercase}}</h2>
     <br>
-    <label>itemType: 
-        <input [(ngModel)]="item.itemType" placeholder="type"/>
-    </label>
+    <h3>Price:</h3>
+    <h4>${{ item.price }}</h4>
     <br>
-    <label>price: 
-        <input [(ngModel)]="item.price" placeholder="price"/>
-    </label>
+    <h3>Condition:</h3>
+    <h5>{{ item.condition }}</h5>
     <br>
-    <label>condition: 
-        <input [(ngModel)]="item.condition" placeholder="condition"/>
-    </label>
+    <h3>Currently on stock: </h3>
+    <h5>{{ item.stock }}</h5>
     <br>
-    <label>stock: 
-        <input [(ngModel)]="item.stock" placeholder="stock"/>
-    </label>
-    <br>
-    <label>popularity: 
-        <input [(ngModel)]="item.popularity" placeholder="popularity"/>
-    </label>
+    <h3>Popularity of this item: </h3>
+    <h5>{{ item.popularity }}</h5>
   </div>
  
-</div>
 <button (click)="goBack()">go back</button>
+</div>

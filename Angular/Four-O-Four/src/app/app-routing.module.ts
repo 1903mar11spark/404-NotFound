@@ -6,13 +6,14 @@ import { HomeComponent } from './home';
 import { LoginComponent } from './login';
 import { ItemsComponent} from './items';
 import { ItemDetailComponent} from './item-detail/item-detail.component';
+import { UserInfoComponent} from './user-info';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'items', component: ItemsComponent },
   { path: 'detail/:id', component: ItemDetailComponent },
-
+  { path: 'user', component: UserInfoComponent },
    // otherwise redirect to home
    { path: '**', redirectTo: '' }
 ];
