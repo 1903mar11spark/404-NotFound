@@ -1,23 +1,44 @@
 package com.notfound.beans;
 
-public class User {
+import javax.persistence.*;
 
+@Entity
+@Table(name = "USERS")
+public class User {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "userSequence")
+	@SequenceGenerator(allocationSize = 1, name = "userSequence", sequenceName = "SQ_USER_PK")
+	@Column(name = "USER_ID")
 	private int userId;
+	
+	@Column(name = "FIRSTNAME")
 	private String firstName;
+	
+	@Column(name = "LASTNAME")
 	private String lastName;
+	
+	@Column(name = "ADDRESS")
 	private String address;
+	
+	@Column(name = "CITY")
 	private String city;
+	
+	@Column(name = "COUNTRY")
 	private String country;
+	
+	@Column(name = "ZIP")
 	private int zip;
-	private ShaneBucks shaneBucks;
+	
+	@Column(name = "SHANE_BUCKS_ID")
+	private int shaneBucksId;
 	
 	
 	public User() {
 		super();
 	}
 	
-	public User(int userId, String firstName, String lastName, String address, String city, String country, int zip,
-			ShaneBucks shaneBucks) {
+	public User(int userId, String firstName, String lastName, String address, String city, String country, int zip, int shaneBucksId) {
 		super();
 		this.userId = userId;
 		this.firstName = firstName;
@@ -26,7 +47,18 @@ public class User {
 		this.city = city;
 		this.country = country;
 		this.zip = zip;
-		this.shaneBucks = shaneBucks;
+		this.shaneBucksId = shaneBucksId;
+	}
+	
+	public User(int userId, String firstName, String lastName, String address, String city, String country, int zip) {
+		super();
+		this.userId = userId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.address = address;
+		this.city = city;
+		this.country = country;
+		this.zip = zip;
 	}
 	
 	public int getUserId() {
@@ -71,17 +103,17 @@ public class User {
 	public void setZip(int zip) {
 		this.zip = zip;
 	}
-	public ShaneBucks getShaneBucks() {
-		return shaneBucks;
+	public int getShaneBucksId() {
+		return shaneBucksId;
 	}
-	public void setShaneBucks(ShaneBucks shaneBucks) {
-		this.shaneBucks = shaneBucks;
+	public void setShaneBucks(int shaneBucksId) {
+		this.shaneBucksId = shaneBucksId;
 	}
 
 	@Override
 	public String toString() {
 		return "User [userId=" + userId + ", firstName=" + firstName + ", lastName=" + lastName + ", address=" + address
-				+ ", city=" + city + ", country=" + country + ", zip=" + zip + ", shaneBucks=" + shaneBucks + "]";
+				+ ", city=" + city + ", country=" + country + ", zip=" + zip + ", shaneBucksId=" + shaneBucksId + "]";
 	}
 	
 	

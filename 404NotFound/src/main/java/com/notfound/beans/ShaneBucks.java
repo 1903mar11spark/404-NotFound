@@ -1,18 +1,31 @@
 package com.notfound.beans;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "SHANE_BUCKS")
 public class ShaneBucks {
 	
+	@Id
+	@Column(name = "SHANE_BUCKS_ID")
 	private int id;
-	private int amount;
+	
+	@Column(name = "BALANCE")
+	private int balance;
+	
+
+	@Column(name = "USER_ID")
+	private int userId;
 	
 	public ShaneBucks() {
 		super();
 	}
 	
-	public ShaneBucks(int id, int amount) {
+	public ShaneBucks(int id, int balance, int userId) {
 		super();
 		this.id = id;
-		this.amount = amount;
+		this.balance = balance;
+		this.userId = userId;
 	}
 	
 	public int getId() {
@@ -22,15 +35,20 @@ public class ShaneBucks {
 		this.id = id;
 	}
 	public int getAmount() {
-		return amount;
+		return balance;
 	}
-	public void setAmount(int amount) {
-		this.amount = amount;
+	public void setAmount(int balance) {
+		this.balance = balance;
 	}
-
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	} 
 	@Override
 	public String toString() {
-		return "ShaneBucks [id=" + id + ", amount=" + amount + "]";
+		return "ShaneBucks [id=" + id + ", balance=" + balance + "]";
 	}
 	
 	
