@@ -7,6 +7,8 @@ import javax.persistence.*;
 public class ShaneBucks {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "shaneSequence")
+	@SequenceGenerator(allocationSize = 1, name = "shaneSequence", sequenceName = "SQ_SHANE_PK")
 	@Column(name = "SHANE_BUCKS_ID")
 	private int id;
 	

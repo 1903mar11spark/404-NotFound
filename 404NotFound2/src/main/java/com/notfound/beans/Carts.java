@@ -9,6 +9,9 @@ import javax.persistence.*;
 public class Carts {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "cartSequence")
+	@SequenceGenerator(allocationSize = 1, name = "cartSequence", sequenceName = "SQ_CART_PK")
+	@Column(name = "CART_ID")
 	private int cartId;
 	
 
@@ -31,12 +34,21 @@ public class Carts {
 		this.userId = userId;
 	}
 	
+	public Carts(int cartId, int userId, List<Items> item, double totalPrice) {
+		super();
+		this.cartId = cartId;
+		this.userId = userId;
+		this.item = item;
+		this.totalPrice = totalPrice;
+	}
+	
 	public Carts(int userId, List<Items> item, double totalPrice) {
 		super();
 		this.userId = userId;
 		this.item = item;
 		this.totalPrice = totalPrice;
 	}
+	
 	
 	public int getCartId() {
 		return cartId;

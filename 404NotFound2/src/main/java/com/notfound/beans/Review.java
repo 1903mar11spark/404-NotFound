@@ -7,6 +7,8 @@ import javax.persistence.*;
 public class Review {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "reviewSequence")
+	@SequenceGenerator(allocationSize = 1, name = "reviewSequence", sequenceName = "SQ_REVIEW_PK")
 	@Column(name = "REV_ID")
 	private int revId;
 	
@@ -25,7 +27,7 @@ public class Review {
 		super();
 	}
 	
-	public Review(int revId, String rant, int userId ) {
+	public Review(int revId, String rant, int userId, int itemId ) {
 		super();
 		this.revId = revId;
 		this.rant = rant;
@@ -51,10 +53,16 @@ public class Review {
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
+	public int getItemId() {
+		return itemId;
+	}
+	public void setItemId(int itemId) {
+		this.itemId = itemId;
+	}
 
 	@Override
 	public String toString() {
-		return "Review [revId=" + revId + ", rant=" + rant + ", userId=" + userId + "]";
+		return "Review [revId=" + revId + ", rant=" + rant + ", userId=" + userId + ", itemId=" + itemId + "]";
 	}
 		
 	
