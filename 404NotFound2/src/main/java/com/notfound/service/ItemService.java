@@ -1,10 +1,10 @@
 package com.notfound.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 
 import com.notfound.dao.ItemsDAO;
-import com.notfound.dao.ItemsDAOImpl;
 import com.notfound.beans.Items;
 @Service
 public class ItemService {
