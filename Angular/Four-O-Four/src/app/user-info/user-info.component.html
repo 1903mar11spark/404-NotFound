@@ -1,15 +1,15 @@
-<div class="row" id="main">
+ <div class="row" id="main">
   <div class="col-sm-12 col-md-12 well" id ="content">
       <h2>User settings</h2>
       <br>
       <h4>User information</h4> 
-      <button id ="userB" style='font-size:24px'><i class='fas fa-edit' style='font-size:16px'></i></button>
+      <button id ="userB" style='font-size:24px'><i class='fas fa-edit' style='font-size:16px' ng-model="click"></i></button>
     <div>
       <h6>User Name: </h6>
-      <input class ="user" placeholder="First name" disabled/>
+      <input class ="user" placeholder="First name" ng-disabled="click"/>
       <br>
       <h6>Password: </h6>
-      <input class ="user" placeholder="********" disabled/>
+      <input class ="user" placeholder="********" ng-disabled="click"/>
       </div>
       <br>
      

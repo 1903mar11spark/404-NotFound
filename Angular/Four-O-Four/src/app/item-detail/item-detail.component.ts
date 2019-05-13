@@ -1,4 +1,5 @@
 import { Component, OnInit, Input} from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { Item } from '../item';
@@ -12,18 +13,18 @@ import { ItemService }  from '../item.service';
 export class ItemDetailComponent implements OnInit {
   @Input() item: Item;
   
-  constructor(private itemService: ItemService,
+  constructor(private route: ActivatedRoute,
+    private itemService: ItemService,
     private location: Location) { }
 
-  ngOnInit(){
+  ngOnInit(): void{
+    this.getItem();
   }
 
-  setClasses(){
-    let classes = {
-      item: true,
-      'is-compleated': this.item.completed
-    }
-    return classes;
+  getItem():void{
+    const id= +this.route.snapshot.paramMap.get('id');
+    this.itemService.getItem(id)
+    .subscribe(item => this.item = item);
   }
 
   onToggle(item){
@@ -34,6 +35,10 @@ export class ItemDetailComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
+  }
+
+  addToCart(): void{
+
   }
 
 }

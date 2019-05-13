@@ -1,5 +1,5 @@
 export class Item{
-    id: number;
+    itemId: number;
     itemName: string;
     itemType: number;
     price: number;
@@ -7,5 +7,4 @@ export class Item{
     stock: number;
     popularity: number;
     image: string;
-    completed:boolean;
 }

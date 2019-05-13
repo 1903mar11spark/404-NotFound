@@ -9,14 +9,12 @@ export class UserInfoComponent implements OnInit {
 
   constructor() { 
     let btn = document.getElementById("userB");
-    btn.addEventListener("click", (e:Event) => this.ableToModify());
   }
 
-  ableToModify(){
-    let usName = document.getElementsByClassName("user");
-    
-  }
+  
   ngOnInit() {
   }
 
+
 }
+                                                     
