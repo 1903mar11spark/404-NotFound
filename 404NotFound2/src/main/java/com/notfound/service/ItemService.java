@@ -20,7 +20,7 @@ public class ItemService {
 	public Items getItemById(int id) {
 		return itemDAO.getItemById(id);
 	};
-	public Items getItemByType(short itemType) {
+	public List<Items> getItemByType(int itemType) {
 		return itemDAO.getItemByType(itemType);
 	};
 	public Items getItemByPrice(double price) {

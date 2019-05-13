@@ -3,6 +3,7 @@ package com.notfound.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,7 +26,7 @@ public class CartsController {
 	public CartsController(CartsService cartsService) {
 		this.cartsService = cartsService;
 	}
-	
+	@CrossOrigin
 	@GetMapping(value="/{userId}")
 	public ResponseEntity<Carts> getCartById(@PathVariable int userId){
 		Carts c = cartsService.getCartById(userId);
@@ -35,7 +36,7 @@ public class CartsController {
 			return new ResponseEntity<>(c, HttpStatus.OK);
 		}
 	}
-	
+	@CrossOrigin
 	@PostMapping
 	public ResponseEntity<String> createNewCartItem(@RequestBody Carts cart){
 		ResponseEntity<String> resp = null;
@@ -47,7 +48,7 @@ public class CartsController {
 		}
 		return resp;
 	}
-	
+	@CrossOrigin
 	@PutMapping
 	public ResponseEntity<String> editCart(@RequestBody Carts cart){
 		ResponseEntity<String> resp = null;
@@ -59,7 +60,7 @@ public class CartsController {
 		}
 		return resp;
 	}	
-	
+	@CrossOrigin
 	@DeleteMapping
 	public ResponseEntity<String> deleteCart(@RequestBody Carts cart){
 		ResponseEntity<String> resp = null;

@@ -3,6 +3,7 @@ package com.notfound.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,7 +26,7 @@ public class ReviewController {
 	public ReviewController(ReviewService reviewService) {
 		this.reviewService = reviewService;
 	}
-	
+	@CrossOrigin
 	@GetMapping(value ="/{id}")
 	public ResponseEntity<Review> getReview(@PathVariable int userId) {
 		Review r = reviewService.getReview(userId);
@@ -35,7 +36,7 @@ public class ReviewController {
 			return new ResponseEntity<> (r, HttpStatus.OK);
 		}
 	}
-	
+	@CrossOrigin
 	@PostMapping
 	public ResponseEntity<String> createReview(@RequestBody Review review){
 		ResponseEntity<String> resp = null;
@@ -47,7 +48,7 @@ public class ReviewController {
 		}
 		return resp;
 	}
-	
+	@CrossOrigin
 	@PutMapping
 	public ResponseEntity<String> updateReview(@RequestBody String rant){
 		ResponseEntity<String> resp = null;
@@ -59,7 +60,7 @@ public class ReviewController {
 		}
 		return resp;
 	}
-	
+	@CrossOrigin
 	@DeleteMapping
 	public ResponseEntity<String> deleteReview(@RequestBody Review review){
 		ResponseEntity<String> resp = null;

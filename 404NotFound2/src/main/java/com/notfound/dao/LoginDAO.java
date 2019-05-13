@@ -9,6 +9,6 @@ public interface LoginDAO {
 	
 	public void createLogin(Login login);
 	public void editLogin(Login login);
-	public int getUserId(Login login);
+	public int gettingUserId(String userName, String password);
 	public List<Login> getAllLogin();
 }

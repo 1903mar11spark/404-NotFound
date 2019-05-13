@@ -30,8 +30,11 @@ public class ItemsDAOImpl implements ItemsDAO {
 	}
 
 	@Override
-	public Items getItemByType(short itemType) {
-		return sessionFactory.getCurrentSession().get(Items.class, itemType);
+	public List<Items> getItemByType(int itemType) {
+		List<Items> TItems = new ArrayList<>();
+		Session s = sessionFactory.getCurrentSession();
+		TItems = s.createQuery("from Items where itemType =" + itemType).getResultList();
+	return TItems;
 	}
 
 	@Override

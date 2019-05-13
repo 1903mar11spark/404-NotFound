@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,7 +26,7 @@ public class ItemsController {
 	public ItemsController(ItemService itemService) {
 		this.itemService = itemService;
 	}
-	
+	@CrossOrigin
 	@GetMapping(value="/{id}")
 	public ResponseEntity<Items> getById(@PathVariable int id){
 		Items i = itemService.getItemById(id);
@@ -35,19 +36,14 @@ public class ItemsController {
 			return new ResponseEntity<>(i, HttpStatus.OK);
 		}
 	}
-	
+	@CrossOrigin
 	@GetMapping(value="/type/{itemType}")
-	public ResponseEntity<Items> getByType(@PathVariable short itemType){
-		Items t = itemService.getItemByType(itemType);
-		if (t == null) {
-			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
-		} else {
-			return new ResponseEntity<>(t, HttpStatus.OK);
-		}
+	public ResponseEntity<List<Items>> getByType(@PathVariable int itemType) {
+		return new ResponseEntity<>(itemService.getItemByType(itemType), HttpStatus.OK);
 	}
-	
+	@CrossOrigin
 	@GetMapping(value="/price/{price}")
-	public ResponseEntity<Items> getByPrice(@PathVariable double price){
+	public ResponseEntity<Items> getByPrice(@PathVariable int price){
 		Items p = itemService.getItemByPrice(price);
 		if (p == null) {
 			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
@@ -55,7 +51,7 @@ public class ItemsController {
 			return new ResponseEntity<>(p, HttpStatus.OK);
 		}
 	}
-	
+	@CrossOrigin
 	@PostMapping
 	public ResponseEntity<String> createItem(@RequestBody Items item){
 		ResponseEntity<String> resp = null;
@@ -67,7 +63,7 @@ public class ItemsController {
 		}
 		return resp;
 	}
-	
+	@CrossOrigin
 	@GetMapping(value="/all")
 	public ResponseEntity<List<Items>> getAllItems() {
 		return new ResponseEntity<>(itemService.allItems(), HttpStatus.OK);
