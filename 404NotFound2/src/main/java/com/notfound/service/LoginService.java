@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.notfound.beans.Items;
 import com.notfound.beans.Login;
 import com.notfound.dao.LoginDAO;
 
@@ -25,8 +24,8 @@ public class LoginService {
 	public void editLogin(Login login) {
 		loginDAO.editLogin(login);
 	};
-	public int getUserId(Login login) {
-		return loginDAO.getUserId(login);
+	public int gettingUserId(String userName, String password) {
+		return loginDAO.gettingUserId(userName, password);
 	};
 	public List<Login> allLogins() {
 		return loginDAO.getAllLogin();
