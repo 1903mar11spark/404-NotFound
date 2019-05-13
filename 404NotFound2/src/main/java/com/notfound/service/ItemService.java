@@ -20,11 +20,11 @@ public class ItemService {
 	public Items getItemById(int id) {
 		return itemDAO.getItemById(id);
 	};
-	public Items getItemByType(short itemType) {
+	public List<Items> getItemByType(int itemType) {
 		return itemDAO.getItemByType(itemType);
 	};
-	public Items getItemByPrice(double price) {
-		return itemDAO.getItemByPrice(price);
+	public List<Items> getItemByPrices(int price1, int price2) {
+		return itemDAO.getItemByPrices(price1, price2);
 	};
 	public void setNewItem(Items item) {
 		itemDAO.setNewItem(item);

@@ -30,6 +30,12 @@ public class ShaneBucks {
 		this.userId = userId;
 	}
 	
+	public ShaneBucks(int balance, int userId) {
+		super();
+		this.balance = balance;
+		this.userId = userId;
+	}
+	
 	public int getId() {
 		return id;
 	}
