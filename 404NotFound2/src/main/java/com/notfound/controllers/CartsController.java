@@ -26,10 +26,7 @@ public class CartsController {
 	public CartsController(CartsService cartsService) {
 		this.cartsService = cartsService;
 	}
-<<<<<<< HEAD
-	
-=======
->>>>>>> 97d79c830b6725521a77e7da5de06ac542df9d19
+
 	@CrossOrigin
 	@GetMapping(value="/{userId}")
 	public ResponseEntity<Carts> getCartById(@PathVariable int userId){

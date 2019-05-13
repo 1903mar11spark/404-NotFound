@@ -28,29 +28,17 @@ public class LoginController {
 	public LoginController(LoginService loginService) {
 		this.loginService = loginService;
 	}
-<<<<<<< HEAD
-	
-	@GetMapping(value="/{login}")
-	@CrossOrigin
-	public ResponseEntity<Integer> getUserId(@PathVariable Login login){
-		int i = loginService.getUserId(login);
-=======
 	@CrossOrigin
 	@GetMapping(value="/{userName}/{password}")
 	public ResponseEntity<Integer> gettingUserId(@PathVariable String userName, @PathVariable String password){
 		int i = loginService.gettingUserId(userName, password);
 		System.out.println(i);
->>>>>>> 97d79c830b6725521a77e7da5de06ac542df9d19
 		if (i == 0) {
 			return new ResponseEntity<>(-1, HttpStatus.BAD_REQUEST);
 		} else {
 			return new ResponseEntity<>(i, HttpStatus.OK);
 		}
 	}
-<<<<<<< HEAD
-	
-=======
->>>>>>> 97d79c830b6725521a77e7da5de06ac542df9d19
 	@CrossOrigin
 	@PostMapping
 	public ResponseEntity<String> createLogin(@RequestBody Login login){
@@ -75,10 +63,6 @@ public class LoginController {
 		}
 		return resp;
 	}
-<<<<<<< HEAD
-	
-=======
->>>>>>> 97d79c830b6725521a77e7da5de06ac542df9d19
 	@CrossOrigin
 	@GetMapping(value="/all")
 	public ResponseEntity<List<Login>> getAllItems() {
