@@ -9,7 +9,7 @@ public interface ItemsDAO {
 	public List<Items> allItems();
 	public Items getItemById(int id);
 	public List<Items> getItemByType(int itemType);
-	public Items getItemByPrice(double price);
+	public List<Items> getItemByPrices(int price1, int price2);
 	public void setNewItem(Items item);
 	
 }

@@ -38,8 +38,11 @@ public class ItemsDAOImpl implements ItemsDAO {
 	}
 
 	@Override
-	public Items getItemByPrice(double price) {
-		return sessionFactory.getCurrentSession().get(Items.class, price);
+	public List<Items> getItemByPrices(int price1, int price2) {
+		List<Items> PItems = new ArrayList<>();
+		Session s = sessionFactory.getCurrentSession();
+		PItems = s.createQuery("from Items where price between "+price1 + " and " + price2 ).getResultList();
+		return PItems;
 	}
 
 	@Override
