@@ -11,5 +11,5 @@ public interface ItemsDAO {
 	public List<Items> getItemByType(int itemType);
 	public List<Items> getItemByPrices(int price1, int price2);
 	public void setNewItem(Items item);
-	
+	public List<Items> getItemByCondition(boolean condition);
 }

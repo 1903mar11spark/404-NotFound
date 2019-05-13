@@ -58,4 +58,12 @@ public class ItemsDAOImpl implements ItemsDAO {
 		items = s.createQuery("from Items").getResultList();
 	return items;
 	}
+
+	@Override
+	public List<Items> getItemByCondition(boolean condition) {
+		List<Items> CItems = new ArrayList<>();
+		Session s = sessionFactory.getCurrentSession();
+		CItems = s.createQuery("from Items where condition=" + condition ).getResultList();
+		return CItems;
+	}
 }

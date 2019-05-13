@@ -64,5 +64,10 @@ public class ItemsController {
 	public ResponseEntity<List<Items>> getAllItems() {
 		return new ResponseEntity<>(itemService.allItems(), HttpStatus.OK);
 	}
+	@CrossOrigin
+	@GetMapping(value="/condition/{condition}")
+	public ResponseEntity<List<Items>> getByCondition(@PathVariable boolean condition) {
+		return new ResponseEntity<>(itemService.getItemByCondition(condition), HttpStatus.OK);
+	}
 
 }
