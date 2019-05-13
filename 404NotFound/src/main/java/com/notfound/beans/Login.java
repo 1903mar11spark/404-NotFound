@@ -1,10 +1,23 @@
 package com.notfound.beans;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "LOGINS")
 public class Login {
 
+	@Id
+	@Column(name = "USERNAME", unique = true)
 	private String userName;
+	
+	@Column(name = "PASSWORD")
 	private String password;
+	
+	@Column(name = "USER_TYPE")
 	private boolean userType;
+	
+
+	@Column(name = "USER_ID")
 	private int userId;
 	
 	
