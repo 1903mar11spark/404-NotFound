@@ -3,6 +3,7 @@ package com.notfound.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,7 +24,7 @@ public class UserController {
 	public UserController(UserService userService) {
 		this.userService = userService;
 	}
-	
+	@CrossOrigin
 	@GetMapping(value="/{id}")
 	public ResponseEntity<User> getUserById(@PathVariable int id){
 		User u = userService.getUserById(id);
@@ -33,7 +34,7 @@ public class UserController {
 			return new ResponseEntity<>(u, HttpStatus.OK);
 		}
 	}
-	
+	@CrossOrigin
 	@PostMapping
 	public ResponseEntity<String> createUser(@RequestBody User user){
 		ResponseEntity<String> resp = null;
@@ -45,7 +46,7 @@ public class UserController {
 		}
 		return resp;
 	}
-	
+	@CrossOrigin
 	@PutMapping
 	public ResponseEntity<String> updateUser(@RequestBody User user){
 		ResponseEntity<String> resp = null;

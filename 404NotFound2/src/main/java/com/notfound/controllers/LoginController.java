@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,6 +30,7 @@ public class LoginController {
 	}
 	
 	@GetMapping(value="/{login}")
+	@CrossOrigin
 	public ResponseEntity<Integer> getUserId(@PathVariable Login login){
 		int i = loginService.getUserId(login);
 		if (i == 0) {
@@ -38,6 +40,7 @@ public class LoginController {
 		}
 	}
 	
+	@CrossOrigin
 	@PostMapping
 	public ResponseEntity<String> createLogin(@RequestBody Login login){
 		ResponseEntity<String> resp = null;
@@ -49,7 +52,7 @@ public class LoginController {
 		}
 		return resp;
 	}
-	
+	@CrossOrigin
 	@PutMapping
 	public ResponseEntity<String> editLogin(@RequestBody Login login){
 		ResponseEntity<String> resp = null;
@@ -62,6 +65,7 @@ public class LoginController {
 		return resp;
 	}
 	
+	@CrossOrigin
 	@GetMapping(value="/all")
 	public ResponseEntity<List<Login>> getAllItems() {
 		return new ResponseEntity<>(loginService.allLogins(), HttpStatus.OK);

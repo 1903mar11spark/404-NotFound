@@ -1,0 +1,39 @@
+<br>
+<div class="form-group col-md-12">
+    <input #searchBox id ="name" placeholder="Search" (input)="search(searchBox.value)"/>
+</div>
+<div class="form-group col-md-2">
+    <h4>Filter by:</h4>
+    <h6>Type:</h6>
+    <label>Videogames     <input id="videogame" type="checkbox" (change)="byVideogame($event)"></label><br/>
+    <label>Computers    <input id="computer" type="checkbox" (change)="byComputer($event)"></label><br/>
+    <label>Accesories    <input id="accesories" type="checkbox" (change)="byAccesories($event)"></label><br/>
+    <hr>
+    <h6>Condition:</h6>
+    <label>New     <input id="new" type="checkbox" (change)="byNew($event)"></label><br/>
+    <label>Used     <input id="used" type="checkbox" (change)="byUsed($event)"></label><br/>
+    <hr>
+    <h6>Price:</h6>
+    <label>$0.0 - $100     <input id="lessThanOne" type="checkbox" (change)="by100($event)"></label><br/>
+    <label>$101 - $200     <input id="lessThanTwo" type="checkbox" (change)="by200($event)"></label><br/>
+    <label>$201 - $300     <input id="lessThanThree" type="checkbox" (change)="by300($event)"></label><br/>
+    <label>$301 - $400     <input id="lessThanFour" type="checkbox" (change)="by400($event)"></label><br/>
+    <label>$401 - $500     <input id="lessThanFive" type="checkbox" (change)="by500($event)"></label><br/>
+  </div>
+
+
+<div class="form-group col-md-10">
+<div class="grid grid-pad">
+  <!--*ngFor="let item of items" class="col-1-4"-->
+  <a *ngFor="let item of items" class="col-1-4" 
+        routerLink="/detail/{{item.itemId}}">
+    <div class="module item">
+     <img id ="pic" src = "{{item.image}}">
+      <h4>{{item.itemName}}</h4>
+      <h3>${{item.price}}</h3>
+      
+    </div>
+  </a>
+  
+</div>
+</div>
