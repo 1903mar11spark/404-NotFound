@@ -1,8 +1,11 @@
 package com.notfound.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.notfound.beans.Items;
 import com.notfound.beans.Login;
 import com.notfound.dao.LoginDAO;
 
@@ -25,4 +28,7 @@ public class LoginService {
 	public int getUserId(Login login) {
 		return loginDAO.getUserId(login);
 	};
+	public List<Login> allLogins() {
+		return loginDAO.getAllLogin();
+	}
 }

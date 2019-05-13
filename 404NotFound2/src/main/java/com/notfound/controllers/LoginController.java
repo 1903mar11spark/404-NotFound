@@ -1,5 +1,7 @@
 package com.notfound.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.notfound.beans.Items;
 import com.notfound.beans.Login;
 import com.notfound.service.LoginService;
 
@@ -57,7 +60,12 @@ public class LoginController {
 			resp = new ResponseEntity<>("FAILED TO UPDATE LOGIN", HttpStatus.BAD_REQUEST);
 		}
 		return resp;
-	}	
+	}
+	
+	@GetMapping(value="/all")
+	public ResponseEntity<List<Login>> getAllItems() {
+		return new ResponseEntity<>(loginService.allLogins(), HttpStatus.OK);
+	}
 }
 
 

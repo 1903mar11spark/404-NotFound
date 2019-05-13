@@ -7,6 +7,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.notfound.beans.Items;
 import com.notfound.beans.ShaneBucks;
 
 @Repository(value = "shaneBucksDAO")
@@ -28,16 +29,13 @@ public class ShaneBucksDAOImpl implements ShaneBucksDAO {
 
 	@Override
 	public double getBalance(int userId) {
-		double balance = 0;
-		Session s = sessionFactory.getCurrentSession();
-		balance = s.createQuery("FROM SHANE_BUCKS WHERE USER_ID =" + userId + "").getFirstResult();
-		return balance;	
+		return sessionFactory.getCurrentSession().get(ShaneBucks.class, userId).getAmount();
 	}
 
 	@Override
 	public void setBalance(int balance, int userId) {
 		Session s = sessionFactory.getCurrentSession();
-		s.createQuery("UPDATE SHANE_BUCKS SET BALANCE= " + balance+ " WHERE USER_ID =" + userId + "").getFirstResult();		
+		s.createQuery("update ShanekBucks set Balance= " + balance+ " where userId =" + userId + "").getFirstResult();		
 	}
 	
 }
