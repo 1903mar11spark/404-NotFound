@@ -1,5 +1,8 @@
 package com.notfound.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.hibernate.Session;
@@ -40,5 +43,13 @@ public class ItemsDAOImpl implements ItemsDAO {
 	public void setNewItem(Items item) {
 		sessionFactory.getCurrentSession().persist(item);
 		
+	}
+
+	@Override
+	public List<Items> allItems() {
+		List<Items> items = new ArrayList<>();
+		Session s = sessionFactory.getCurrentSession();
+		items = s.createQuery("from Items").getResultList();
+	return items;
 	}
 }

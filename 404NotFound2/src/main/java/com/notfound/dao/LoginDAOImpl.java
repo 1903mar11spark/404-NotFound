@@ -1,5 +1,8 @@
 package com.notfound.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
@@ -9,6 +12,7 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.notfound.beans.Items;
 import com.notfound.beans.Login;
 
 @Repository(value = "loginDAO")
@@ -36,8 +40,16 @@ public class LoginDAOImpl implements LoginDAO {
 	public int getUserId(Login login) {
 		int userId = 0;
 		Session s = sessionFactory.getCurrentSession();
-			userId = s.createQuery("FROM LOGINS L WHERE L.USERNAME = " + login.getUserName()+ " AND WHERE L.PASSWORD = " + login.getPassword() + "").getFirstResult();
+			userId = s.createQuery("from Login where userName = " + login.getUserName()+ " and where password = " + login.getPassword() + "").getFirstResult();
 
 		return userId;
+	}
+
+	@Override
+	public List<Login> getAllLogin() {
+		List<Login> logins = new ArrayList<>();
+		Session s = sessionFactory.getCurrentSession();
+		logins = s.createQuery("from Login").getResultList();
+	return logins;
 	}
 }

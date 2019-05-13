@@ -16,7 +16,7 @@ public class Items {
 	private String itemName;
 	
 	@Column(name = "ITEM_TYPE")
-	private int itemType;
+	private short itemType;
 	
 	@Column(name = "IMAGE")
 	private String image;
@@ -50,7 +50,7 @@ public class Items {
 		this.price = price;
 	}
 	
-	public Items(int itemId, String itemName, int itemType, String image, double price, boolean condition, int stock,
+	public Items(int itemId, String itemName, short itemType, String image, double price, boolean condition, int stock,
 			float popularity) {
 		super();
 		this.itemId = itemId;
@@ -63,7 +63,7 @@ public class Items {
 		this.popularity = popularity;
 	}
 	
-	public Items(String itemName, int itemType, String image, double price, boolean condition, int stock,
+	public Items(String itemName, short itemType, String image, double price, boolean condition, int stock,
 			float popularity) {
 		super();
 		this.itemName = itemName;
@@ -87,10 +87,10 @@ public class Items {
 	public void setItemName(String itemName) {
 		this.itemName = itemName;
 	}
-	public int getItemType() {
+	public short getItemType() {
 		return itemType;
 	}
-	public void setItemType(int itemType) {
+	public void setItemType(short itemType) {
 		this.itemType = itemType;
 	}
 	public String getImage() {
