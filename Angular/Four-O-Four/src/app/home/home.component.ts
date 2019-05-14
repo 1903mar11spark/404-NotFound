@@ -33,14 +33,14 @@ export class HomeComponent implements OnInit {
 
   byVideogame(event) {
     if ( event.target.checked ) {
-        this.itemService.getItemByType(1)
+        this.itemService.getItemByType(2)
         .subscribe(item => this.item = item);
    }
   }
 
   byComputer(event) {
     if ( event.target.checked ) {
-        this.itemService.getItemByType(2)
+        this.itemService.getItemByType(1)
         .subscribe(item => this.item = item);
    }
   }
@@ -68,35 +68,35 @@ export class HomeComponent implements OnInit {
 
   by100(event) {
     if ( event.target.checked ) {
-        this.itemService.getItemByPrice(100)
+        this.itemService.getItemByPrice(0,100)
         .subscribe(item => this.item = item);
    }
   }
 
   by200(event) {
     if ( event.target.checked ) {
-        this.itemService.getItemByPrice(200)
+        this.itemService.getItemByPrice(101, 200)
         .subscribe(item => this.item = item);
    }
   }
 
   by300(event) {
     if ( event.target.checked ) {
-        this.itemService.getItemByPrice(300)
+        this.itemService.getItemByPrice(201,300)
         .subscribe(item => this.item = item);
    }
   }
 
   by400(event) {
     if ( event.target.checked ) {
-        this.itemService.getItemByPrice(400)
+        this.itemService.getItemByPrice(301,400)
         .subscribe(item => this.item = item);
    }
   }
   
   by500(event) {
     if ( event.target.checked ) {
-        this.itemService.getItemByPrice(500)
+        this.itemService.getItemByPrice(401,500)
         .subscribe(item => this.item = item);
    }
   }

@@ -8,6 +8,8 @@ import { ItemsComponent} from './items';
 import { ItemDetailComponent} from './item-detail/item-detail.component';
 import { UserInfoComponent} from './user-info';
 import { CartComponent } from './cart';
+import { SellComponent } from './sell';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -16,6 +18,7 @@ const routes: Routes = [
   { path: 'detail/:id', component: ItemDetailComponent },
   { path: 'user', component: UserInfoComponent },
   { path: 'cart', component: CartComponent },
+  { path: 'sell', component: SellComponent },
    // otherwise redirect to home
    { path: '**', redirectTo: '' }
 ];

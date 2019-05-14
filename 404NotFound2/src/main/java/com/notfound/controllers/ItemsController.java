@@ -41,22 +41,12 @@ public class ItemsController {
 	public ResponseEntity<List<Items>> getByType(@PathVariable int itemType) {
 		return new ResponseEntity<>(itemService.getItemByType(itemType), HttpStatus.OK);
 	}
+	
 	@CrossOrigin
-<<<<<<< HEAD
-	@GetMapping(value="/price/{price}")
-	public ResponseEntity<Items> getByPrice(@PathVariable double price){
-		Items p = itemService.getItemByPrice(price);
-		if (p == null) {
-			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
-		} else {
-			return new ResponseEntity<>(p, HttpStatus.OK);
-		}
-=======
 	@GetMapping(value="/price/{price1}/{price2}")
 	public ResponseEntity<List<Items>> getByPrice(@PathVariable int price1, @PathVariable int price2){
 		return new ResponseEntity<>(itemService.getItemByPrices(price1, price2), HttpStatus.OK);
 		
->>>>>>> 97d79c830b6725521a77e7da5de06ac542df9d19
 	}
 	@CrossOrigin
 	@PostMapping

@@ -21,17 +21,17 @@ export class ItemService {
     private itemsUrl: string = 'http://localhost:8084/404NotFound2/items/all';
     private itemType: string = 'http://localhost:8084/404NotFound2/items/type';
     private itemName: string = 'http://localhost:8084/404NotFound2/items/itemName';
-    private itemId: string = 'http://localhost:8084/404NotFound2/items';
+    private itemIdUrl: string = 'http://localhost:8084/404NotFound2/items';
     private itemCondition: string = 'http://localhost:8084/404NotFound2/items/condition';
     private itemPrice: string = 'http://localhost:8084/404NotFound2/items/price';
-
+   
 
   getItems(): Observable<Item[]>{
     return this.http.get<Item[]>(`${this.itemsUrl}`);
   }
 
   getItem(id: number): Observable<Item> {
-    const url = `${this.itemId}/${id}`;
+    const url = `${this.itemIdUrl}/${id}`;
     return this.http.get<Item>(url).pipe(
       tap(_ => this.log(`fetched item id=${id}`)),
       catchError(this.handleError<Item>(`getItem id=${id}`))
@@ -62,14 +62,21 @@ export class ItemService {
     );
   }
 
-  getItemByPrice(price: number): Observable<Item>{
-    const urlP = `${this.itemPrice}/${price}`;
+  getItemByPrice(price: number, price2: number): Observable<Item>{
+    const urlP = `${this.itemPrice}/${price}/ ${price2}`;
     return this.http.get<Item>(urlP).pipe(
-      tap(_ => this.log(`fetched item id=${price}`)),
-      catchError(this.handleError<Item>(`getItem id=${price}`))
+      tap(_ => this.log(`fetched item id=${price}/ ${price2}`)),
+      catchError(this.handleError<Item>(`getItem id=${price}/ ${price2}`))
     );
   }
 
+  addListing(item:Item):Observable<Item>{
+    const url = `${this.itemIdUrl}`;
+    return this.http.post<Item> (url, item, httpOptions).pipe(
+      tap((newItem: Item) => this.log(`added item w/ id=${newItem.itemId}`)),
+      catchError(this.handleError<Item>('addItem'))
+    );
+  }
 
   toggleCompleted(item:Item):Observable<any>{
     const url = `${this.itemsUrl}/${item.itemId}`;

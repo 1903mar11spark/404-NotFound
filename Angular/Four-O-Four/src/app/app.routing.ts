@@ -4,6 +4,7 @@ import { HomeComponent } from './home';
 import { LoginComponent } from './login';
 import { UserInfoComponent} from './user-info';
 import { CartComponent } from './cart';
+import { SellComponent } from './sell';
 
 
 const routes: Routes = [
@@ -11,6 +12,7 @@ const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'user', component: UserInfoComponent },
     { path: 'cart', component: CartComponent },
+    { path: 'Sell', component: SellComponent },
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
 ];
