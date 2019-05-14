@@ -45,7 +45,10 @@ public class ItemsController {
 	@GetMapping(value="/price/{price1}/{price2}")
 	public ResponseEntity<List<Items>> getByPrice(@PathVariable int price1, @PathVariable int price2){
 		return new ResponseEntity<>(itemService.getItemByPrices(price1, price2), HttpStatus.OK);
+<<<<<<< HEAD
 		
+=======
+>>>>>>> e97af690e9d58e3046dca08f4880c5054b66ab3a
 	}
 	@CrossOrigin
 	@PostMapping
@@ -63,6 +66,17 @@ public class ItemsController {
 	@GetMapping(value="/all")
 	public ResponseEntity<List<Items>> getAllItems() {
 		return new ResponseEntity<>(itemService.allItems(), HttpStatus.OK);
+	}
+	@CrossOrigin
+	@GetMapping(value="/condition/{condition}")
+	public ResponseEntity<List<Items>> getByCondition(@PathVariable boolean condition) {
+		return new ResponseEntity<>(itemService.getItemByCondition(condition), HttpStatus.OK);
+	}
+
+	@CrossOrigin
+	@GetMapping(value="/user/{userId}")
+	public ResponseEntity<List<Items>> getByUser(@PathVariable int userId) {
+		return new ResponseEntity<>(itemService.getItemByUser(userId), HttpStatus.OK);
 	}
 
 }

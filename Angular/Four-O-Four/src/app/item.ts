@@ -7,4 +7,5 @@ export class Item{
     stock: number;
     popularity: number;
     image: string;
+    userId: number;
 }

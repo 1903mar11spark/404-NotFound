@@ -33,6 +33,10 @@ public class LoginController {
 	public ResponseEntity<Integer> gettingUserId(@PathVariable String userName, @PathVariable String password){
 		int i = loginService.gettingUserId(userName, password);
 		System.out.println(i);
+<<<<<<< HEAD
+=======
+
+>>>>>>> e97af690e9d58e3046dca08f4880c5054b66ab3a
 		if (i == 0) {
 			return new ResponseEntity<>(-1, HttpStatus.BAD_REQUEST);
 		} else {

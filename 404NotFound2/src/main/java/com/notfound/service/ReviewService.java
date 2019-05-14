@@ -1,5 +1,7 @@
 package com.notfound.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,11 +24,14 @@ public class ReviewService {
 	public void deleteReview(Review review) {
 		reviewDAO.deleteReview(review);
 	};
-	public void editReview(String rant) {
-		reviewDAO.editReview(rant);
+	public void editReview(Review review) {
+		reviewDAO.editReview(review);
 	};
-	public Review getReview(int userId) {
-		return reviewDAO.getReview(userId);
+	public List<Review> getReview(int itemId) {
+		return reviewDAO.getReviewByItem(itemId);
+	};
+	public List<Review> getAllReviews() {
+		return reviewDAO.getAllReviews();
 	};
 	
 }

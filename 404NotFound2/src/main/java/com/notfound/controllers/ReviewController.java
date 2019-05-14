@@ -1,5 +1,7 @@
 package com.notfound.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.notfound.beans.Login;
 import com.notfound.beans.Review;
 import com.notfound.service.ReviewService;
 
@@ -27,14 +30,14 @@ public class ReviewController {
 		this.reviewService = reviewService;
 	}
 	@CrossOrigin
-	@GetMapping(value ="/{id}")
-	public ResponseEntity<Review> getReview(@PathVariable int userId) {
-		Review r = reviewService.getReview(userId);
-		if (r == null) {
-			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
-		}else {
-			return new ResponseEntity<> (r, HttpStatus.OK);
-		}
+	@GetMapping(value="/all")
+	public ResponseEntity<List<Review>> getAllReviews() {
+		return new ResponseEntity<>(reviewService.getAllReviews(), HttpStatus.OK);
+	}
+	@CrossOrigin
+	@GetMapping(value ="/{itemId}")
+	public ResponseEntity<List<Review>> getReview(@PathVariable int itemId) {
+		return new ResponseEntity<>(reviewService.getReview(itemId), HttpStatus.OK);
 	}
 	@CrossOrigin
 	@PostMapping
@@ -50,10 +53,10 @@ public class ReviewController {
 	}
 	@CrossOrigin
 	@PutMapping
-	public ResponseEntity<String> updateReview(@RequestBody String rant){
+	public ResponseEntity<String> updateReview(@RequestBody Review review){
 		ResponseEntity<String> resp = null;
 		try {
-			reviewService.editReview(rant);
+			reviewService.editReview(review);
 			resp = new ResponseEntity<>("REVIEW UPDATED SUCCESSFULLY", HttpStatus.OK);
 		} catch (Exception e) {
 			resp = new ResponseEntity<>("FAILED TO UPDATE REVIEW", HttpStatus.BAD_REQUEST);
