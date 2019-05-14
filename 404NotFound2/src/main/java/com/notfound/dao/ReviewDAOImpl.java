@@ -37,7 +37,7 @@ public class ReviewDAOImpl implements ReviewDAO{
 
 	@Override
 	public void editReview(Review review) {
-		sessionFactory.getCurrentSession().update(review);	
+		sessionFactory.getCurrentSession().saveOrUpdate(review);	
 		
 	}
 
