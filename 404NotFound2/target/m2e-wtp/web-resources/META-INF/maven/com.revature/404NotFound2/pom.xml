@@ -38,11 +38,7 @@
 			<artifactId>jackson-databind</artifactId>
 			<version>2.9.7</version>
 		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.datatype</groupId>
-			<artifactId>jackson-datatype-jsr310</artifactId>
-			<version>2.9.7</version>
-		</dependency>
+	
 		<dependency>
 			<groupId>com.fasterxml.jackson.datatype</groupId>
 			<artifactId>jackson-datatype-jsr310</artifactId>
@@ -65,5 +61,9 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>5.4.0.Final</version>
 		</dependency>
+		
+		
 	</dependencies>
+	
+	
 </project>
