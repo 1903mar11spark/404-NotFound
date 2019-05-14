@@ -1,5 +1,9 @@
 package com.notfound.dao;
 
+import java.util.ArrayList;
+
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.hibernate.Session;
@@ -32,13 +36,23 @@ public class ReviewDAOImpl implements ReviewDAO{
 	}
 
 	@Override
-	public void editReview(String rant) {
-		// TODO Auto-generated method stub
+	public void editReview(Review review) {
+		sessionFactory.getCurrentSession().saveOrUpdate(review);	
 		
 	}
 
 	@Override
-	public Review getReview(int userId) {
-		return sessionFactory.getCurrentSession().get(Review.class, userId);
+	public List<Review> getReviewByItem(int itemId) {
+		List<Review> reviews = new ArrayList<>();
+		Session s = sessionFactory.getCurrentSession();
+		reviews = s.createQuery("from Review where itemId =" + itemId).getResultList();
+		return reviews;
+	}
+	
+	public List<Review> getAllReviews() {
+		List<Review> reviews = new ArrayList<>();
+		Session s = sessionFactory.getCurrentSession();
+		reviews = s.createQuery("from Review").getResultList();
+	return reviews;
 	}
 }
