@@ -33,13 +33,13 @@
     color: #eee;
     max-height: 160px;
     min-width: 160px;
-    background-color: #ff8902;
+    background-color: #003b6b;;
     border-radius: 2px;
   }
   .module:hover {
-    background-color: #eee;
+    background-color: #010d38;
     cursor: pointer;
-    color: #af5d00;
+    color:#ffffff;
   }
   .grid-pad {
     padding: 10px 0;
