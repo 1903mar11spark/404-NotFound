@@ -24,6 +24,7 @@ public class ShaneBucksController {
 	public ShaneBucksController(ShaneBucksService shaneBucksService) {
 		this.shaneBucksService = shaneBucksService;
 	}
+	
 	@CrossOrigin
 	@GetMapping(value="/{userId}")
 	public ResponseEntity<Double> getBalance(@PathVariable int userId){
@@ -34,6 +35,7 @@ public class ShaneBucksController {
 			return new ResponseEntity<>(s, HttpStatus.OK);
 		}
 	}
+	
 	@CrossOrigin
 	@PostMapping
 	public ResponseEntity<String> makeNewBalance(@RequestBody ShaneBucks shane){
@@ -46,6 +48,7 @@ public class ShaneBucksController {
 		}
 		return resp;
 	}
+	
 	@CrossOrigin
 	@PutMapping
 	public ResponseEntity<String> setBalance(@RequestBody int balance, int userId){
