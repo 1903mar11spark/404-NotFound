@@ -38,23 +38,13 @@ public class ItemsController {
 	}
 	@CrossOrigin
 	@GetMapping(value="/type/{itemType}")
-	public ResponseEntity<Items> getByType(@PathVariable short itemType){
-		Items t = itemService.getItemByType(itemType);
-		if (t == null) {
-			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
-		} else {
-			return new ResponseEntity<>(t, HttpStatus.OK);
-		}
+	public ResponseEntity<List<Items>> getByType(@PathVariable int itemType) {
+		return new ResponseEntity<>(itemService.getItemByType(itemType), HttpStatus.OK);
 	}
 	@CrossOrigin
-	@GetMapping(value="/price/{price}")
-	public ResponseEntity<Items> getByPrice(@PathVariable double price){
-		Items p = itemService.getItemByPrice(price);
-		if (p == null) {
-			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
-		} else {
-			return new ResponseEntity<>(p, HttpStatus.OK);
-		}
+	@GetMapping(value="/price/{price1}/{price2}")
+	public ResponseEntity<List<Items>> getByPrice(@PathVariable int price1, @PathVariable int price2){
+		return new ResponseEntity<>(itemService.getItemByPrices(price1, price2), HttpStatus.OK);
 	}
 	@CrossOrigin
 	@PostMapping
@@ -72,6 +62,17 @@ public class ItemsController {
 	@GetMapping(value="/all")
 	public ResponseEntity<List<Items>> getAllItems() {
 		return new ResponseEntity<>(itemService.allItems(), HttpStatus.OK);
+	}
+	@CrossOrigin
+	@GetMapping(value="/condition/{condition}")
+	public ResponseEntity<List<Items>> getByCondition(@PathVariable boolean condition) {
+		return new ResponseEntity<>(itemService.getItemByCondition(condition), HttpStatus.OK);
+	}
+
+	@CrossOrigin
+	@GetMapping(value="/user/{userId}")
+	public ResponseEntity<List<Items>> getByUser(@PathVariable int userId) {
+		return new ResponseEntity<>(itemService.getItemByUser(userId), HttpStatus.OK);
 	}
 
 }

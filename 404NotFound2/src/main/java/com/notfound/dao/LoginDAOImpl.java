@@ -12,13 +12,14 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.notfound.beans.Items;
 import com.notfound.beans.Login;
+import com.notfound.beans.User;
 
 @Repository(value = "loginDAO")
 @Transactional
 public class LoginDAOImpl implements LoginDAO {
 
+	private Login login;
 	private SessionFactory sessionFactory;
 	
 	@Autowired // Constructor injection
@@ -37,12 +38,15 @@ public class LoginDAOImpl implements LoginDAO {
 	}
 
 	@Override
-	public int getUserId(Login login) {
-		int userId = 0;
-		Session s = sessionFactory.getCurrentSession();
-			userId = s.createQuery("from Login where userName = " + login.getUserName()+ " and where password = " + login.getPassword() + "").getFirstResult();
-
-		return userId;
+	public int gettingUserId(String userName, String password) {
+		
+		Login gotUserId = sessionFactory.getCurrentSession().get(Login.class, userName);
+		if (gotUserId.getPassword().contains(password)) {
+			int usersId = gotUserId.getUserId();
+			return usersId;
+		} else {
+			return -1;
+		}
 	}
 
 	@Override

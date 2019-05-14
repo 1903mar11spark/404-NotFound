@@ -16,7 +16,7 @@ public class Items {
 	private String itemName;
 	
 	@Column(name = "ITEM_TYPE")
-	private short itemType;
+	private int itemType;
 	
 	@Column(name = "IMAGE")
 	private String image;
@@ -33,6 +33,9 @@ public class Items {
 	@Column(name = "POPULARITY")
 	private float popularity;
 	
+	@Column(name = "USER_ID")
+	private int userId;
+	
 	
 	public Items() {
 		super();
@@ -42,15 +45,9 @@ public class Items {
 		this.itemId = itemId;
 	}
 	
-	public Items(short itemType) {
-		this.itemType = itemType;
-	}
+
 	
-	public Items(double price) {
-		this.price = price;
-	}
-	
-	public Items(int itemId, String itemName, short itemType, String image, double price, boolean condition, int stock,
+	public Items(int itemId, String itemName, int itemType, String image, double price, boolean condition, int stock, int userId,
 			float popularity) {
 		super();
 		this.itemId = itemId;
@@ -61,9 +58,10 @@ public class Items {
 		this.condition = condition;
 		this.stock = stock;
 		this.popularity = popularity;
+		this.userId = userId;
 	}
 	
-	public Items(String itemName, short itemType, String image, double price, boolean condition, int stock,
+	public Items(String itemName, int itemType, String image, double price, boolean condition, int stock, int userId,
 			float popularity) {
 		super();
 		this.itemName = itemName;
@@ -73,6 +71,7 @@ public class Items {
 		this.condition = condition;
 		this.stock = stock;
 		this.popularity = popularity;
+		this.userId = userId;
 	}
 	
 	public int getItemId() {
@@ -81,16 +80,22 @@ public class Items {
 	public void setItemId(int itemId) {
 		this.itemId = itemId;
 	}
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 	public String getItemName() {
 		return itemName;
 	}
 	public void setItemName(String itemName) {
 		this.itemName = itemName;
 	}
-	public short getItemType() {
+	public int getItemType() {
 		return itemType;
 	}
-	public void setItemType(short itemType) {
+	public void setItemType(int itemType) {
 		this.itemType = itemType;
 	}
 	public String getImage() {
