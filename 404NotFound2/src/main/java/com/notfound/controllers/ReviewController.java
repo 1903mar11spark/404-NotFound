@@ -29,7 +29,6 @@ public class ReviewController {
 	public ReviewController(ReviewService reviewService) {
 		this.reviewService = reviewService;
 	}
-	
 	@CrossOrigin
 	@GetMapping(value="/all")
 	public ResponseEntity<List<Review>> getAllReviews() {
