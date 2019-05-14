@@ -66,4 +66,12 @@ public class ItemsDAOImpl implements ItemsDAO {
 		CItems = s.createQuery("from Items where condition=" + condition ).getResultList();
 		return CItems;
 	}
+
+	@Override
+	public List<Items> getItemByUser(int userId) {
+		List<Items> UItems = new ArrayList<>();
+		Session s = sessionFactory.getCurrentSession();
+		UItems = s.createQuery("from Items where userId =" + userId).getResultList();
+	return UItems;
+	}
 }

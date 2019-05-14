@@ -35,5 +35,8 @@ public class ItemService {
 	public List<Items> getItemByCondition(boolean condition) {
 		return itemDAO.getItemByCondition(condition);
 	}
+	public List<Items> getItemByUser(int userId) {
+		return itemDAO.getItemByUser(userId);
+	};
 
 }

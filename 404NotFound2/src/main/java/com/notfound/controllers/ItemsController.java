@@ -70,4 +70,10 @@ public class ItemsController {
 		return new ResponseEntity<>(itemService.getItemByCondition(condition), HttpStatus.OK);
 	}
 
+	@CrossOrigin
+	@GetMapping(value="/user/{userId}")
+	public ResponseEntity<List<Items>> getByUser(@PathVariable int userId) {
+		return new ResponseEntity<>(itemService.getItemByUser(userId), HttpStatus.OK);
+	}
+
 }
