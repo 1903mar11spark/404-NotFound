@@ -1,5 +1,4 @@
-export class Item{
-    itemId: string;
+export class ItemC{
     itemName: string;
     itemType: number;
     image: string;

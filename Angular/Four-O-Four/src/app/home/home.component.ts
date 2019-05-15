@@ -34,70 +34,71 @@ export class HomeComponent implements OnInit {
   byVideogame(event) {
     if ( event.target.checked ) {
         this.itemService.getItemByType(2)
-        .subscribe(item => this.item = item);
+        .subscribe(items => this.items = items);
    }
   }
 
   byComputer(event) {
     if ( event.target.checked ) {
         this.itemService.getItemByType(1)
-        .subscribe(item => this.item = item);
+        .subscribe(items=> this.items = items);
+
    }
   }
 
   byAccesories(event) {
     if ( event.target.checked ) {
         this.itemService.getItemByType(3)
-        .subscribe(item => this.item = item);
+        .subscribe(items => this.items = items);
    }
   }
 
   byNew(event) {
     if ( event.target.checked ) {
         this.itemService.getItemByCondition(true)
-        .subscribe(item => this.item = item);
+        .subscribe(items => this.items = items);
    }
   }
 
   byUsed(event) {
     if ( event.target.checked ) {
         this.itemService.getItemByCondition(false)
-        .subscribe(item => this.item = item);
+        .subscribe(items => this.items = items);
    }
   }
 
   by100(event) {
     if ( event.target.checked ) {
         this.itemService.getItemByPrice(0,100)
-        .subscribe(item => this.item = item);
+        .subscribe(items => this.items = items);
    }
   }
 
   by200(event) {
     if ( event.target.checked ) {
         this.itemService.getItemByPrice(101, 200)
-        .subscribe(item => this.item = item);
+        .subscribe(items => this.items = items);
    }
   }
 
   by300(event) {
     if ( event.target.checked ) {
         this.itemService.getItemByPrice(201,300)
-        .subscribe(item => this.item = item);
+        .subscribe(items => this.items = items);
    }
   }
 
   by400(event) {
     if ( event.target.checked ) {
         this.itemService.getItemByPrice(301,400)
-        .subscribe(item => this.item = item);
+        .subscribe(items => this.items = items);
    }
   }
   
   by500(event) {
     if ( event.target.checked ) {
         this.itemService.getItemByPrice(401,500)
-        .subscribe(item => this.item = item);
+        .subscribe(items => this.items = items);
    }
   }
   getItems(): void {
