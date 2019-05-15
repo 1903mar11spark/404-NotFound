@@ -14,10 +14,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { CartComponent } from './cart/cart.component';
 import { SellComponent } from './sell/sell.component';
-<<<<<<< HEAD
-=======
 import { SignUpComponent } from './sign-up/sign-up.component';
->>>>>>> 8a2a901c6645b2eb0ec8eed23d4c1280b6e736ac
 
 @NgModule({
   imports: [
@@ -37,12 +34,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     MessagesComponent,
     UserInfoComponent,
     CartComponent,
-<<<<<<< HEAD
-    SellComponent
-=======
     SellComponent,
     SignUpComponent
->>>>>>> 8a2a901c6645b2eb0ec8eed23d4c1280b6e736ac
   ],
   
   bootstrap: [AppComponent]

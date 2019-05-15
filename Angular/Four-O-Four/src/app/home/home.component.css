@@ -31,13 +31,8 @@
     padding: 20px;
     text-align: center;
     color: #eee;
-<<<<<<< HEAD
-    max-height: 160px;
-    min-width: 160px;
-=======
     max-height: 200px;
     min-width: 200px;
->>>>>>> 8a2a901c6645b2eb0ec8eed23d4c1280b6e736ac
     background-color: #003b6b;;
     border-radius: 2px;
   }
