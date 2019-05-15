@@ -1,5 +1,9 @@
 package com.notfound.dao;
 
+import java.util.ArrayList;
+
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.hibernate.Session;
@@ -9,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.notfound.beans.Carts;
+
 
 @Repository(value = "cartsDAO")
 @Transactional
@@ -33,13 +38,17 @@ public class CartsDAOImpl implements CartsDAO {
 	}
 
 	@Override
-	public void editCart(Carts cart) {
-		sessionFactory.getCurrentSession().saveOrUpdate(cart);
+	public void editCart(int userId, int itemId, int quantity) {
+		Session s = sessionFactory.getCurrentSession();
+		s.createQuery("update Carts set quantity =" + quantity + " where userId =" + userId+ " and itemId = "+ itemId).getResultList();
 		
 	}
 
 	@Override
-	public Carts getCartById(int userId) {
-		return sessionFactory.getCurrentSession().get(Carts.class, userId);
+	public List<Carts> getCartById(int userId) {
+		List<Carts> carts = new ArrayList<>();
+		Session s = sessionFactory.getCurrentSession();
+		carts = s.createQuery("from Carts where userId =" + userId).getResultList();
+		return carts;
 	}
 }

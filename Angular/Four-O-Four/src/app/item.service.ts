@@ -48,6 +48,7 @@ export class ItemService {
 
   getItemByType(type: number): Observable<Item>{
     const urlT = `${this.itemType}/${type}`;
+    console.log(urlT);
     return this.http.get<Item>(urlT).pipe(
       tap(_ => this.log(`fetched item id=${type}`)),
       catchError(this.handleError<Item>(`getItem id=${type}`))

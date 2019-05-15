@@ -25,7 +25,16 @@ public class Carts {
 	@Column(name = "TOTAL_PRICE")
 	private double totalPrice;
 	
+	@Column(name = "ITEM_ID")
+	private int itemId;
 	
+	@Column(name = "QUANTITY")
+	private int quantity;
+	
+	@Column(name = "PRICE")
+	private int price;
+	
+
 	public Carts() {
 		super();
 	}
@@ -34,6 +43,16 @@ public class Carts {
 		this.userId = userId;
 	}
 	
+	
+	public Carts(int userId,double totalPrice, int itemId, int quantity, int price) {
+		super();
+		this.userId = userId;
+		this.totalPrice = totalPrice;
+		this.itemId = itemId;
+		this.quantity = quantity;
+		this.price = price;
+	}
+
 	public Carts(int cartId, int userId, List<Items> item, double totalPrice) {
 		super();
 		this.cartId = cartId;
@@ -42,14 +61,36 @@ public class Carts {
 		this.totalPrice = totalPrice;
 	}
 	
-	public Carts(int userId, List<Items> item, double totalPrice) {
+	public Carts(int userId, double totalPrice) {
 		super();
 		this.userId = userId;
-		this.item = item;
 		this.totalPrice = totalPrice;
 	}
 	
 	
+	public int getItemId() {
+		return itemId;
+	}
+
+	public void setItemId(int itemId) {
+		this.itemId = itemId;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
 	public int getCartId() {
 		return cartId;
 	}

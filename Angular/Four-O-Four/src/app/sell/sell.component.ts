@@ -29,9 +29,9 @@ export class SellComponent implements OnInit {
     var condition=((document.getElementById("iCondition") as HTMLInputElement).value);
     var cond;
     if (condition == "New"){
-      cond = true;
+      cond = 1;
     }else if (condition == "Used"){
-      cond = false;
+      cond = 0;
     }
     var stock=((document.getElementById("stock") as HTMLInputElement).value);
     var stock2 = +stock;
