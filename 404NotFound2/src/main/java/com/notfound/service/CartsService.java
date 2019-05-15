@@ -1,5 +1,7 @@
 package com.notfound.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,10 +23,10 @@ public class CartsService {
 	public void deleteCart(Carts cart) {
 		cartsDAO.deleteCart(cart);
 	};
-	public void editCart(Carts cart) {
-		cartsDAO.editCart(cart);
+	public void editCart(int userId, int itemId, int quantity) {
+		cartsDAO.editCart(userId, itemId, quantity);
 	};
-	public Carts getCartById(int userId) {
+	public List<Carts> getCartById(int userId) {
 		return cartsDAO.getCartById(userId);
 	};
 

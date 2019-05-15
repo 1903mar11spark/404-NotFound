@@ -1,5 +1,7 @@
 package com.notfound.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,8 +31,8 @@ public class CartsController {
 
 	@CrossOrigin
 	@GetMapping(value="/{userId}")
-	public ResponseEntity<Carts> getCartById(@PathVariable int userId){
-		Carts c = cartsService.getCartById(userId);
+	public ResponseEntity<List<Carts>> getCartById(@PathVariable int userId){
+		List<Carts> c = cartsService.getCartById(userId);
 		if (c == null) {
 			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
 		} else {
@@ -51,10 +53,10 @@ public class CartsController {
 	}
 	@CrossOrigin
 	@PutMapping
-	public ResponseEntity<String> editCart(@RequestBody Carts cart){
+	public ResponseEntity<String> editCart(@RequestBody int userId,@RequestBody int itemId,@RequestBody int quantity){
 		ResponseEntity<String> resp = null;
 		try {
-			cartsService.editCart(cart);
+			cartsService.editCart(userId, itemId, quantity);
 			resp = new ResponseEntity<>("CART UPDATED SUCCESSFULLY", HttpStatus.OK);
 		} catch (Exception e) {
 			resp = new ResponseEntity<>("FAILED TO UPDATE CART", HttpStatus.BAD_REQUEST);

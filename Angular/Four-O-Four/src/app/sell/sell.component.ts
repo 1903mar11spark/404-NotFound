@@ -6,6 +6,7 @@ import { ItemC } from '../itemCreation';
 import { ItemService }  from '../item.service';
 import { FormGroup, FormControl } from '@angular/forms';
 
+
 @Component({
   selector: 'app-sell',
   templateUrl: './sell.component.html',
@@ -104,6 +105,4 @@ addItem(): void{
   //     popularity: popularity,
   //     userId:1
   //   };
-
-  
 }
