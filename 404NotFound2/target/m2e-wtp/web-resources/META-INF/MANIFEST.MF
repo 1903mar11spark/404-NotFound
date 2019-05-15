@@ -1,6 +1,9 @@
 Manifest-Version: 1.0
 Built-By: Shinr
 Build-Jdk: 1.8.0_201
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 613830c9b9ceba2ae04d23bd9ecea757f3e9ff6f
 Created-By: Maven Integration for Eclipse
 

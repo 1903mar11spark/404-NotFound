@@ -18,12 +18,6 @@ public class Carts {
 	@Column(name = "USER_ID")
 	private int userId;
 	
-	@OneToMany(fetch = FetchType.EAGER)
-	@JoinColumn(name = "ITEMS")
-	private List<Items> item;
-	
-	@Column(name = "TOTAL_PRICE")
-	private double totalPrice;
 	
 	@Column(name = "ITEM_ID")
 	private int itemId;
@@ -32,7 +26,7 @@ public class Carts {
 	private int quantity;
 	
 	@Column(name = "PRICE")
-	private int price;
+	private double price;
 	
 
 	public Carts() {
@@ -44,28 +38,20 @@ public class Carts {
 	}
 	
 	
-	public Carts(int userId,double totalPrice, int itemId, int quantity, int price) {
+	public Carts(int userId, int itemId, int quantity, double price) {
 		super();
 		this.userId = userId;
-		this.totalPrice = totalPrice;
 		this.itemId = itemId;
 		this.quantity = quantity;
 		this.price = price;
 	}
 
-	public Carts(int cartId, int userId, List<Items> item, double totalPrice) {
+	public Carts(int cartId, int userId) {
 		super();
 		this.cartId = cartId;
 		this.userId = userId;
-		this.item = item;
-		this.totalPrice = totalPrice;
 	}
 	
-	public Carts(int userId, double totalPrice) {
-		super();
-		this.userId = userId;
-		this.totalPrice = totalPrice;
-	}
 	
 	
 	public int getItemId() {
@@ -84,11 +70,11 @@ public class Carts {
 		this.quantity = quantity;
 	}
 
-	public int getPrice() {
+	public double getPrice() {
 		return price;
 	}
 
-	public void setPrice(int price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 	public int getCartId() {
@@ -103,22 +89,10 @@ public class Carts {
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
-	public List<Items> getItem() {
-		return item;
-	}
-	public void setItem(List<Items> item) {
-		this.item = item;
-	}
-	public double getTotalPrice() {
-		return totalPrice;
-	}
-	public void setTotalPrice(double totalPrice) {
-		this.totalPrice = totalPrice;
-	}
 
 	@Override
 	public String toString() {
-		return "Carts [cartId =" + cartId + ", userId=" + userId + ", item=" + item + ", totalPrice=" + totalPrice + "]";
+		return "Carts [cartId =" + cartId + ", userId=" + userId + "]";
 	}
 	
 	

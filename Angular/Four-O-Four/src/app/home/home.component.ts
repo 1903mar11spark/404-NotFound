@@ -42,7 +42,10 @@ export class HomeComponent implements OnInit {
     if ( event.target.checked ) {
         this.itemService.getItemByType(1)
         .subscribe(items=> this.items = items);
+<<<<<<< HEAD
+=======
 
+>>>>>>> 613830c9b9ceba2ae04d23bd9ecea757f3e9ff6f
    }
   }
 
