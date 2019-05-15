@@ -70,5 +70,3 @@ public class LoginController {
 		return new ResponseEntity<>(loginService.allLogins(), HttpStatus.OK);
 	}
 }
-
-

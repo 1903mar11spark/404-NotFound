@@ -1,22 +1,39 @@
 <div class="row" id="main">
 <div class="col-sm-12 col-md-12 well" id ="content">
 <h3>What would you like to sell?   </h3>
+<<<<<<< HEAD
 <input id= "itemName" type="text" />
+=======
+<form [formGroup]="sellForm" (ngSubmit)="addItem()">
+<input formControlName="itemName" id= "itemName" type="text" />
+>>>>>>> 8a2a901c6645b2eb0ec8eed23d4c1280b6e736ac
 <br>
 <br>
 <div class="form-row">
     <div class="form-group col-md-4">
         <h6>Item type:</h6>
+<<<<<<< HEAD
             <select id="iCategory" name = "condition"class="form-control">
                 <option selected>Choose...</option>
                 <option>Videogame</option>
                 <option>Computer</option>
                 <option>Accesory</option>
+=======
+            <select formControlName="iCategory" id="iCategory" name = "condition"class="form-control">
+                <option selected>Choose...</option>
+                <option>Videogame</option>
+                <option>Computer</option>
+                <option>Accessories</option>
+>>>>>>> 8a2a901c6645b2eb0ec8eed23d4c1280b6e736ac
             </select>
         </div>
     <div class="form-group col-md-4">
     <h6>Condition:</h6>
+<<<<<<< HEAD
     <select id="iCondition" name = "condition"class="form-control">
+=======
+    <select id="iCondition" formControlName="condition" name = "condition"class="form-control">
+>>>>>>> 8a2a901c6645b2eb0ec8eed23d4c1280b6e736ac
         <option selected>Choose...</option>
         <option>New</option>
         <option>Used</option>
@@ -25,6 +42,7 @@
   </div>
   <div class="form-row">
     <div class="form-group col-md-4">
+<<<<<<< HEAD
     <h6>Quantity:  <input id = "stock" type="number" value="1"/> </h6>
     </div>
     <div class="form-group col-md-4">
@@ -34,5 +52,19 @@
   <h6>Picture Url: <input id ="img" type="text" /></h6>
 <button id="add" (click)="addItem()">List it</button>
 
+=======
+    <h6>Quantity:  <input formControlName="stock" id = "stock" type="number" value="1"/> </h6>
+    </div>
+    <div class="form-group col-md-4">
+    <h6>Price: $<input formControlName="price" id ="price" type="number" value="1"/></h6>
+    </div>
+  </div>
+  <h6>Picture Url: <input id ="img" type="text" formControlName="img"/></h6>
+  <input id ="popularity" type="hidden" formControlName="popularity" value="1"/>
+  <input id ="userId" type="hidden" formControlName="userId" value="1"/>
+
+<button type="submit" value="List it">List it</button>
+</form>
+>>>>>>> 8a2a901c6645b2eb0ec8eed23d4c1280b6e736ac
 </div>
 </div>
