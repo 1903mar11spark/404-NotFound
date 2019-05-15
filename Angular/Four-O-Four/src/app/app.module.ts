@@ -15,6 +15,10 @@ import { UserInfoComponent } from './user-info/user-info.component';
 import { CartComponent } from './cart/cart.component';
 import { SellComponent } from './sell/sell.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+<<<<<<< HEAD
+=======
+
+>>>>>>> 613830c9b9ceba2ae04d23bd9ecea757f3e9ff6f
 
 @NgModule({
   imports: [

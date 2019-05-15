@@ -5,6 +5,10 @@ import { Item } from '../item';
 import { ItemC } from '../itemCreation';
 import { ItemService }  from '../item.service';
 import { FormGroup, FormControl } from '@angular/forms';
+<<<<<<< HEAD
+=======
+
+>>>>>>> 613830c9b9ceba2ae04d23bd9ecea757f3e9ff6f
 
 @Component({
   selector: 'app-sell',
@@ -104,6 +108,9 @@ addItem(): void{
   //     popularity: popularity,
   //     userId:1
   //   };
+<<<<<<< HEAD
 
   
+=======
+>>>>>>> 613830c9b9ceba2ae04d23bd9ecea757f3e9ff6f
 }
