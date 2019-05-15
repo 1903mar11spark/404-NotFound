@@ -5,6 +5,8 @@ import { Observable, of } from 'rxjs';
 import {catchError, map, tap} from 'rxjs/operators';
 
 import { Item } from './item';
+import { ItemC } from './itemCreation';
+import { CartItem } from './cartItem';
 import { MessageService } from './message.service';
 
 const httpOptions = {
@@ -22,8 +24,11 @@ export class ItemService {
     private itemType: string = 'http://localhost:8084/404NotFound2/items/type';
     private itemName: string = 'http://localhost:8084/404NotFound2/items/itemName';
     private itemIdUrl: string = 'http://localhost:8084/404NotFound2/items';
+    private itemAUrl: string = 'http://localhost:8084/404NotFound2/items';
     private itemCondition: string = 'http://localhost:8084/404NotFound2/items/condition';
     private itemPrice: string = 'http://localhost:8084/404NotFound2/items/price';
+
+    private cartUrl: string = 'http://localhost:8084/404NotFound2/carts';
    
 
   getItems(): Observable<Item[]>{
@@ -46,40 +51,41 @@ export class ItemService {
     );
   }
 
-  getItemByType(type: number): Observable<Item>{
+  getItemByType(type: number): Observable<Item[]>{
     const urlT = `${this.itemType}/${type}`;
-    return this.http.get<Item>(urlT).pipe(
+    return this.http.get<Item[]>(urlT).pipe(
       tap(_ => this.log(`fetched item id=${type}`)),
-      catchError(this.handleError<Item>(`getItem id=${type}`))
+      catchError(this.handleError<Item[]>(`getItem id=${type}`))
     );
   }
 
-  getItemByCondition(condition: boolean): Observable<Item>{
+  getItemByCondition(condition: boolean): Observable<Item[]>{
     const urlC = `${this.itemCondition}/${condition}`;
-    return this.http.get<Item>(urlC).pipe(
+    return this.http.get<Item[]>(urlC).pipe(
       tap(_ => this.log(`fetched item id=${condition}`)),
-      catchError(this.handleError<Item>(`getItem id=${condition}`))
+      catchError(this.handleError<Item[]>(`getItem id=${condition}`))
     );
   }
 
-  getItemByPrice(price: number, price2: number): Observable<Item>{
+  getItemByPrice(price: number, price2: number): Observable<Item[]>{
     const urlP = `${this.itemPrice}/${price}/ ${price2}`;
-    return this.http.get<Item>(urlP).pipe(
+    return this.http.get<Item[]>(urlP).pipe(
       tap(_ => this.log(`fetched item id=${price}/ ${price2}`)),
-      catchError(this.handleError<Item>(`getItem id=${price}/ ${price2}`))
+      catchError(this.handleError<Item[]>(`getItem id=${price}/ ${price2}`))
     );
   }
 
-  addListing(item:Item):Observable<Item>{
-    const url = `${this.itemIdUrl}`;
-    return this.http.post<Item> (url, item, httpOptions).pipe(
-      tap((newItem: Item) => this.log(`added item w/ id=${newItem.itemId}`)),
-      catchError(this.handleError<Item>('addItem'))
-    );
+  addListing (item: ItemC): Observable<ItemC> {
+    return this.http.post<any>(`${this.itemAUrl}`,item);
   }
+
+  addtoCart(cartI: CartItem): Observable<CartItem> {
+    return this.http.post<any>(`${this.cartUrl}`,cartI);
+  }
+
 
   toggleCompleted(item:Item):Observable<any>{
-    const url = `${this.itemsUrl}/${item.itemId}`;
+    const url = `${this.itemsUrl}/${item.itemName}`;
     return this.http.put(url, item, httpOptions);
   }
   

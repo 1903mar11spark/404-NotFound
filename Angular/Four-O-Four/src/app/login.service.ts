@@ -23,12 +23,11 @@ export class LoginService {
 
     gettingUserId(userName: string, password: string): Observable<Login> {
       const url = `${this.urlId}/${userName}/${password}`;
-      console.log(this.http.post(url ,""));
+      console.log(url);
       return this.http.get<Login>(url).pipe(
         tap(_ => console.log(`fetched user id=${userName}/${password}`)),
         catchError(this.handleError<Login>(`gettingUserId user_id=${userName}/${password}`))
       );
-      console.log(this.http.get<Login>(url));
     }  
 
     private handleError<T> (operation = 'operation', result?: T) {
