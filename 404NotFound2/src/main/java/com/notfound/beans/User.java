@@ -50,6 +50,17 @@ public class User {
 		this.shaneBucksId = shaneBucksId;
 	}
 	
+	public User(String firstName, String lastName, String address, String city, String country, int zip, int shaneBucksId) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.address = address;
+		this.city = city;
+		this.country = country;
+		this.zip = zip;
+		this.shaneBucksId = shaneBucksId;
+	}
+	
 	public User(int userId, String firstName, String lastName, String address, String city, String country, int zip) {
 		super();
 		this.userId = userId;

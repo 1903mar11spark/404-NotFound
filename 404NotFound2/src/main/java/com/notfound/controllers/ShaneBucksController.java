@@ -26,10 +26,10 @@ public class ShaneBucksController {
 	}
 	@CrossOrigin
 	@GetMapping(value="/{userId}")
-	public ResponseEntity<Double> getBalance(@PathVariable int userId){
-		double s = shaneBucksService.getBalance(userId);
+	public ResponseEntity<Float> getBalance(@PathVariable int userId){
+		float s = shaneBucksService.fetchBalance(userId);
 		if (s == 0) {
-			return new ResponseEntity<>(0.00, HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
 		} else {
 			return new ResponseEntity<>(s, HttpStatus.OK);
 		}
@@ -48,10 +48,10 @@ public class ShaneBucksController {
 	}
 	@CrossOrigin
 	@PutMapping
-	public ResponseEntity<String> setBalance(@RequestBody int balance, int userId){
+	public ResponseEntity<String> setBalance(@RequestBody ShaneBucks shane){
 		ResponseEntity<String> resp = null;
 		try {
-			shaneBucksService.setBalance(balance, userId);
+			shaneBucksService.setBalance(shane);
 			resp = new ResponseEntity<>("SHANE UPDATED SUCCESSFULLY", HttpStatus.OK);
 		} catch (Exception e) {
 			resp = new ResponseEntity<>("FAILED TO UPDATE SHANE", HttpStatus.BAD_REQUEST);

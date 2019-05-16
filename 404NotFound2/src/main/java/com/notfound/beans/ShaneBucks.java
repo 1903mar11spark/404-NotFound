@@ -2,6 +2,8 @@ package com.notfound.beans;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 @Table(name = "SHANE_BUCKS")
 public class ShaneBucks {
@@ -13,7 +15,7 @@ public class ShaneBucks {
 	private int id;
 	
 	@Column(name = "BALANCE")
-	private int balance;
+	private float balance;
 	
 
 	@Column(name = "USER_ID")
@@ -23,14 +25,14 @@ public class ShaneBucks {
 		super();
 	}
 	
-	public ShaneBucks(int id, int balance, int userId) {
+	public ShaneBucks(int id, float balance, int userId) {
 		super();
 		this.id = id;
 		this.balance = balance;
 		this.userId = userId;
 	}
 	
-	public ShaneBucks(int balance, int userId) {
+	public ShaneBucks(float balance, int userId) {
 		super();
 		this.balance = balance;
 		this.userId = userId;
@@ -42,10 +44,10 @@ public class ShaneBucks {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getAmount() {
+	public float getBalance() {
 		return balance;
 	}
-	public void setAmount(int balance) {
+	public void setBalance(float balance) {
 		this.balance = balance;
 	}
 	public int getUserId() {
@@ -56,7 +58,7 @@ public class ShaneBucks {
 	} 
 	@Override
 	public String toString() {
-		return "ShaneBucks [id=" + id + ", balance=" + balance + "]";
+		return "ShaneBucks [id=" + id + ", balance=" + balance + "userId=" + userId + "]";
 	}
 	
 	

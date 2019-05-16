@@ -18,10 +18,10 @@ public class ShaneBucksService {
 	public void makeNewBalance(ShaneBucks shane) {
 		shaneBucksDAO.makeNewBalance(shane);
 	};
-	public double getBalance(int userId) {
-		return shaneBucksDAO.getBalance(userId);
+	public float fetchBalance(int userId) {
+		return shaneBucksDAO.fetchBalance(userId);
 	};
-	public void setBalance(int balance, int userId) {
-		shaneBucksDAO.setBalance(balance, userId);
+	public void setBalance(ShaneBucks shane) {
+		shaneBucksDAO.setBalance(shane);
 	};
 }

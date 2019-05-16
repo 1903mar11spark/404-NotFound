@@ -19,11 +19,7 @@ export class LoginService {
     private http: HttpClient, 
     private messageService: MessageService) { }
 
-<<<<<<< HEAD
     private urlId: string = 'http://localhost:8087/404NotFound2/login';
-=======
-    private urlId: string = 'http://localhost:8084/404NotFound2/login';
->>>>>>> 613830c9b9ceba2ae04d23bd9ecea757f3e9ff6f
 
     gettingUserId(userName: string, password: string): Observable<Login> {
       const url = `${this.urlId}/${userName}/${password}`;
