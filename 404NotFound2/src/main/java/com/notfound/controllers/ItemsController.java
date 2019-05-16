@@ -45,10 +45,6 @@ public class ItemsController {
 	@GetMapping(value="/price/{price1}/{price2}")
 	public ResponseEntity<List<Items>> getByPrice(@PathVariable int price1, @PathVariable int price2){
 		return new ResponseEntity<>(itemService.getItemByPrices(price1, price2), HttpStatus.OK);
-<<<<<<< HEAD
-		
-=======
->>>>>>> e97af690e9d58e3046dca08f4880c5054b66ab3a
 	}
 	@CrossOrigin
 	@PostMapping
