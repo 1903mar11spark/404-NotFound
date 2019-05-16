@@ -1,4 +1,4 @@
-<button (click)="goBack()">go back</button>
+<button (click)="goBack()">Go Back</button>
 <div *ngIf="item">
 <div class="col-sm-12 offset-sm-12">
 <div class="row" id="main">
@@ -19,12 +19,11 @@
     <table>
     <tr>
       <td>
-          <h5>Price:</h5>
-          <h5>${{ item.price }}</h5>
+          <h5>Price: ${{ item.price }}</h5>
+          <button id="cart" class = "button2" (click)="addToCart()">Add to Cart</button>
+
       </td>
-      <td>
-          <button id="cart" (click)="addToCart()">Add to cart</button>
-      </td>
+      
     </tr>
   </table>
     </div>
