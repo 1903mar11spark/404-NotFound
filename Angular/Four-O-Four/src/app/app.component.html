@@ -12,12 +12,13 @@
     <a class="nav-item nav-link" routerLink="/sell">Sell</a>
     <a class="nav-item nav-link" routerLink="/cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Cart</a>
     <div class="dropdown">
-      <button class="dropbtn">Name goes here
+      <button class="dropbtn" id ="username">{{user.firstName}}
       <i class="fa fa-caret-down"></i>
     </button>
       <div class="dropdown-content">
         <a routerLink="/user">User's Settings</a>
         <a routerLink="/login">Login</a>
+        
       </div>
     </div>
   </div>
@@ -32,5 +33,5 @@
       </div>
   </div>
 </div>
-<app-messages></app-messages>
+
 <!-- main content container -->

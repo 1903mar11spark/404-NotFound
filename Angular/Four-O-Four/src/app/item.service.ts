@@ -20,15 +20,6 @@ export class ItemService {
     private http: HttpClient, 
     private messageService: MessageService) { }
 
-<<<<<<< HEAD
-    private itemsUrl: string = 'http://localhost:8087/404NotFound2/items/all';
-    private itemType: string = 'http://localhost:8087/404NotFound2/items/type';
-    private itemName: string = 'http://localhost:8087/404NotFound2/items/itemName';
-    private itemIdUrl: string = 'http://localhost:8087/404NotFound2/items';
-    private itemCondition: string = 'http://localhost:8087/404NotFound2/items/condition';
-    private itemPrice: string = 'http://localhost:8087/404NotFound2/items/price';
-    private cartUrl: string = 'http://localhost:8087/404NotFound2/carts';
-=======
     private itemsUrl: string = 'http://localhost:8084/404NotFound2/items/all';
     private itemType: string = 'http://localhost:8084/404NotFound2/items/type';
     private itemName: string = 'http://localhost:8084/404NotFound2/items/itemName';
@@ -37,8 +28,8 @@ export class ItemService {
     private itemCondition: string = 'http://localhost:8084/404NotFound2/items/condition';
     private itemPrice: string = 'http://localhost:8084/404NotFound2/items/price';
 
-    private cartUrl: string = 'http://localhost:8084/404NotFound2/carts';   
->>>>>>> 613830c9b9ceba2ae04d23bd9ecea757f3e9ff6f
+    private cartUrl: string = 'http://localhost:8084/404NotFound2/carts';
+   
 
   getItems(): Observable<Item[]>{
     return this.http.get<Item[]>(`${this.itemsUrl}`);
@@ -85,10 +76,10 @@ export class ItemService {
   }
 
   addListing (item: ItemC): Observable<ItemC> {
-    return this.http.post<any>(`${this.itemIdUrl}`,item);
+    return this.http.post<any>(`${this.itemAUrl}`,item);
   }
 
-  addtoCart(cartI: CartItem): Observable<CartItem> {
+  addCart(cartI: CartItem): Observable<CartItem> {
     return this.http.post<any>(`${this.cartUrl}`,cartI);
   }
 

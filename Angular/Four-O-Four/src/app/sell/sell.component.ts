@@ -5,10 +5,7 @@ import { Item } from '../item';
 import { ItemC } from '../itemCreation';
 import { ItemService }  from '../item.service';
 import { FormGroup, FormControl } from '@angular/forms';
-<<<<<<< HEAD
-=======
-
->>>>>>> 613830c9b9ceba2ae04d23bd9ecea757f3e9ff6f
+import { LocalStorage } from '@ngx-pwa/local-storage';
 
 @Component({
   selector: 'app-sell',
@@ -20,7 +17,7 @@ export class SellComponent implements OnInit {
   items: Item[] = [];
   items$: Observable<Item>;
   sellForm: FormGroup;
-  constructor( private itemService: ItemService) { 
+  constructor( private itemService: ItemService, protected localStorage : LocalStorage) { 
 
 this.sellForm = new FormGroup({
   itemName: new FormControl(),
@@ -50,9 +47,10 @@ addItem(): void{
     }else if (this.sellForm.value.condition == "Used"){
       condi = false;
   }
+  const id = JSON.parse(localStorage.getItem('id'));
+  const uId = id.id;
 
  const itemS: ItemC = {
-  
    itemName: this.sellForm.value.itemName, 
    itemType: cate, 
    image: this.sellForm.value.img, 
@@ -60,7 +58,7 @@ addItem(): void{
    condition: condi, 
    stock: this.sellForm.value.stock, 
    popularity: 5.5, 
-   userId: 1};
+   userId: uId};
  this.itemService.addListing(itemS).subscribe(
   data  => { console.log("PUT Request is successful ", data);},
   error  => {console.log("Error", error);}
@@ -108,9 +106,6 @@ addItem(): void{
   //     popularity: popularity,
   //     userId:1
   //   };
-<<<<<<< HEAD
 
   
-=======
->>>>>>> 613830c9b9ceba2ae04d23bd9ecea757f3e9ff6f
 }
