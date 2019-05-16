@@ -1,0 +1,72 @@
+
+<body>
+    <button id = "back" (click)="goBack()">Go Back</button>
+
+    <h3>Create Your Not Found Account</h3>
+    
+
+       
+
+
+    <div>
+      
+      <form action="/action_page.php">
+
+        <div class="row">
+            <div class="col">
+                <label>User Name:</label>
+                <input type="email" class="form-control" id="user" placeholder="Email">
+             </div>
+                <div class="col">
+                    <label>Password:</label>
+                    <input type="password" class="form-control" id="pass" placeholder="1234pass1234">
+                </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <label>First Name:</label>
+              <input type="text" class="form-control" id = "fname" placeholder="First name">
+            </div>
+            <div class="col">
+              <label>Last Name:</label>
+              <input type="text" class="form-control" id = "lname" placeholder="Last name">
+            </div>
+          </div>
+
+          <div class="row">
+              <div class="col">
+                <label>Address:</label>
+                <input type="text" class="form-control" id = "addy" placeholder=" 14525 Prism Circle">
+              </div>
+              <div class="col">
+                <label>City:</label>
+                <input type="text" class="form-control" id = "city" placeholder="Tampa">
+              </div>
+            </div>
+
+
+         <div class="row">
+            <div class="col">
+              <label>Zip Code:</label>
+              <input type="text" class="form-control"  id = "zip" placeholder="33613">
+            </div>
+         </div>
+
+
+        <label for="country">Country</label>
+        <select id="country" name="country">
+          <option value="australia">Australia</option>
+          <option value="canada">Canada</option>
+          <option value="usa">USA</option>
+        </select>
+      
+
+
+
+        <button id = "button1" (click)="signup()">Sign-Up!</button>
+
+      </form>
+    </div>
+    
+    </body>

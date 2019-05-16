@@ -14,6 +14,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { CartComponent } from './cart/cart.component';
 import { SellComponent } from './sell/sell.component';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   imports: [
@@ -32,7 +33,8 @@ import { SellComponent } from './sell/sell.component';
     MessagesComponent,
     UserInfoComponent,
     CartComponent,
-    SellComponent
+    SellComponent,
+    SignupComponent
   ],
   
   bootstrap: [AppComponent]

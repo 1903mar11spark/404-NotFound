@@ -9,6 +9,7 @@ import { ItemDetailComponent} from './item-detail/item-detail.component';
 import { UserInfoComponent} from './user-info';
 import { CartComponent } from './cart';
 import { SellComponent } from './sell';
+import { SignupComponent } from './signup/signup.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,8 @@ const routes: Routes = [
   { path: 'detail/:id', component: ItemDetailComponent },
   { path: 'user', component: UserInfoComponent },
   { path: 'cart', component: CartComponent },
+  { path: 'signup', component: SignupComponent },
+
   { path: 'sell', component: SellComponent },
    // otherwise redirect to home
    { path: '**', redirectTo: '' }
