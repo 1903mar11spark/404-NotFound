@@ -28,7 +28,8 @@ export class ItemService {
     private itemCondition: string = 'http://localhost:8084/404NotFound2/items/condition';
     private itemPrice: string = 'http://localhost:8084/404NotFound2/items/price';
 
-    private cartUrl: string = 'http://localhost:8084/404NotFound2/carts';   
+    private cartUrl: string = 'http://localhost:8084/404NotFound2/carts';
+   
 
   getItems(): Observable<Item[]>{
     return this.http.get<Item[]>(`${this.itemsUrl}`);
@@ -78,7 +79,7 @@ export class ItemService {
     return this.http.post<any>(`${this.itemAUrl}`,item);
   }
 
-  addtoCart(cartI: CartItem): Observable<CartItem> {
+  addCart(cartI: CartItem): Observable<CartItem> {
     return this.http.post<any>(`${this.cartUrl}`,cartI);
   }
 

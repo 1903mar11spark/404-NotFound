@@ -42,7 +42,6 @@ export class HomeComponent implements OnInit {
     if ( event.target.checked ) {
         this.itemService.getItemByType(1)
         .subscribe(items=> this.items = items);
-
    }
   }
 

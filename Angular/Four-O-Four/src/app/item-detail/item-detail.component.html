@@ -1,35 +1,39 @@
-<button (click)="goBack()">go back</button>
 <div *ngIf="item">
+    <button id = "back" (click)="goBack()">Go Back</button>
+
 <div class="col-sm-12 offset-sm-12">
 <div class="row" id="main">
     <div class="form-group col-md-6">
+       
     <img id ="pic" src = "{{item.image}}">
     </div>
     <div class="form-group col-md-6">
+        <form [formGroup]="cartForm" (ngSubmit)="addTotheCart()">
     <h3> {{ item.itemName | uppercase}}</h3>
     <br>
     <h6>Item Raking: {{ item.popularity }} /10</h6>
     <hr>
     <h6>Condition: {{ item.condition }}</h6>
     <br>
-    <h6>Quantity:  <input type="text" value="1"/>  {{ item.stock }} Available</h6>
+    <h6>Quantity:   <input formControlName="quantity" id="quantity" type="number"/>  {{ item.stock }} Available</h6>
     <br>
 
     <div class="module item">
     <table>
     <tr>
       <td>
-          <h5>Price:</h5>
-          <h5>${{ item.price }}</h5>
+          <h5>Price: ${{ item.price }}</h5>
+          <button type="submit" value="Add to cart">Add to Cart</button>
+
       </td>
-      <td>
-          <button id="cart" (click)="addToCart()">Add to cart</button>
-      </td>
+      
     </tr>
   </table>
     </div>
-  </div>
-    
+
+  <input formControlName="priceI" id="priceI" type="number"/>
+  <input formControlName="iId" id="iId" type="number"/>
+</form>
   </div>
 </div>
 </div>

@@ -16,7 +16,6 @@ import { CartComponent } from './cart/cart.component';
 import { SellComponent } from './sell/sell.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 
-
 @NgModule({
   imports: [
     BrowserModule,
